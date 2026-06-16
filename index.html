@@ -3,434 +3,416 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanse-Konzept | Klarheit für Gesundheit, Vorsorge und Recht</title>
+  <title>Hanse-Konzept | Beratung aus Bremen</title>
 
   <style>
     :root {
-      --navy: #0E2A44;
-      --blue: #173D63;
-      --sand: #C7A46C;
-      --paper: #F4EFE7;
-      --soft: #E8DDD0;
-      --white: #fff;
-      --muted: rgba(14, 42, 68, .68);
+      --hanse: #005F56;
+      --hanse-dark: #003F39;
+      --hanse-soft: #DDEBE8;
+      --cream: #F6F1E8;
+      --sand: #C8A96A;
+      --text: #13201F;
+      --muted: #64716F;
+      --white: #FFFFFF;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-      background: var(--paper);
-      color: var(--navy);
+      background: var(--cream);
+      color: var(--text);
       overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
 
+    header {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 1180px;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 999px;
+      background: rgba(246, 241, 232, .72);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,.65);
+      box-shadow: 0 20px 60px rgba(0,0,0,.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: var(--hanse-dark);
+    }
+
+    .mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--hanse);
+      border: 1px solid rgba(0,95,86,.28);
+      background: rgba(255,255,255,.55);
+    }
+
+    nav {
+      display: none;
+      gap: 22px;
+      font-size: 13px;
+      font-weight: 750;
+      color: var(--hanse-dark);
+    }
+
+    .header-cta {
+      background: var(--hanse);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     .hero {
       min-height: 100svh;
       position: relative;
-      padding: 22px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: flex-end;
+      padding: 130px 22px 42px;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(244,239,231,.28), rgba(244,239,231,.9)),
-        url("https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=2400&q=80");
+        linear-gradient(90deg, rgba(246,241,232,.98) 0%, rgba(246,241,232,.86) 38%, rgba(246,241,232,.12) 100%),
+        linear-gradient(180deg, rgba(0,63,57,.08), rgba(0,63,57,.34)),
+        url("assets/bremen-maritim.jpg");
       background-size: cover;
       background-position: center;
     }
 
-    .hero::before {
+    .hero::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 80% 10%, rgba(199,164,108,.38), transparent 34%),
-        linear-gradient(90deg, rgba(244,239,231,.95) 0%, rgba(244,239,231,.62) 48%, rgba(14,42,68,.18) 100%);
-      z-index: 0;
+      inset: auto -20% -18% -20%;
+      height: 32%;
+      background: var(--cream);
+      border-radius: 100% 100% 0 0;
+      z-index: 1;
     }
 
-    header,
-    .hero-main,
-    .hero-bottom {
+    .hero-inner {
       position: relative;
       z-index: 2;
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: var(--navy);
-      color: var(--sand);
-      display: grid;
-      place-items: center;
-      font-weight: 950;
-      letter-spacing: -.08em;
-    }
-
-    .menu {
-      font-size: 13px;
-      font-weight: 800;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.54);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,.65);
-    }
-
-    .hero-main {
-      padding: 15vh 0 8vh;
-      max-width: 900px;
-    }
-
-    .label {
+    .kicker {
+      color: var(--hanse);
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--sand);
       font-weight: 900;
-      margin-bottom: 20px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(56px, 15vw, 128px);
-      line-height: .82;
-      letter-spacing: -.085em;
-      max-width: 980px;
+      max-width: 780px;
+      font-size: clamp(54px, 12vw, 116px);
+      line-height: .86;
+      letter-spacing: -.08em;
+      font-weight: 850;
     }
 
-    .hero-text {
+    .italic {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--hanse);
+      letter-spacing: -.06em;
+    }
+
+    .hero p {
       margin-top: 28px;
-      max-width: 560px;
-      font-size: clamp(19px, 5vw, 27px);
-      line-height: 1.16;
+      max-width: 520px;
+      font-size: clamp(19px, 4.8vw, 25px);
+      line-height: 1.25;
+      color: rgba(19,32,31,.76);
       letter-spacing: -.035em;
-      color: rgba(14,42,68,.78);
     }
 
     .actions {
-      margin-top: 34px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: 34px;
       max-width: 360px;
     }
 
     .btn {
       border-radius: 999px;
       padding: 17px 22px;
-      font-weight: 900;
       font-size: 15px;
+      font-weight: 850;
       text-align: center;
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .primary {
-      background: var(--navy);
-      color: white;
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(0,95,86,.2);
     }
 
-    .secondary {
-      background: rgba(255,255,255,.62);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,.72);
-    }
-
-    .hero-bottom {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .glass {
-      background: rgba(255,255,255,.58);
-      backdrop-filter: blur(22px);
-      border: 1px solid rgba(255,255,255,.7);
-      border-radius: 26px;
-      padding: 18px;
-      box-shadow: 0 28px 80px rgba(14,42,68,.12);
-    }
-
-    .glass strong {
-      display: block;
-      font-size: 14px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 7px;
-    }
-
-    .glass span {
-      font-size: 15px;
-      line-height: 1.35;
-      color: rgba(14,42,68,.72);
-    }
+    .primary { background: var(--hanse); color: white; }
+    .secondary { background: rgba(255,255,255,.72); color: var(--hanse-dark); border: 1px solid rgba(0,95,86,.18); }
 
     section {
-      padding: 84px 22px;
+      padding: 92px 22px;
     }
 
-    .intro {
-      background: var(--navy);
-      color: white;
-      min-height: 76svh;
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .statement {
+      min-height: 72svh;
       display: flex;
       align-items: center;
+      background: var(--cream);
     }
 
-    .intro h2 {
-      font-size: clamp(44px, 12vw, 104px);
-      line-height: .88;
-      letter-spacing: -.075em;
+    .statement h2 {
       max-width: 950px;
+      font-size: clamp(42px, 10vw, 96px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      font-weight: 820;
     }
 
-    .intro p {
+    .statement p {
       margin-top: 28px;
-      font-size: clamp(19px, 4.8vw, 27px);
-      line-height: 1.25;
-      max-width: 640px;
-      color: rgba(255,255,255,.72);
+      max-width: 650px;
+      font-size: 21px;
+      line-height: 1.38;
+      color: var(--muted);
     }
 
     .worlds {
-      background: var(--paper);
+      background: var(--hanse-soft);
+      border-radius: 42px 42px 0 0;
     }
 
     .section-title {
-      font-size: clamp(42px, 11vw, 96px);
-      line-height: .88;
+      font-size: clamp(42px, 10vw, 88px);
+      line-height: .9;
       letter-spacing: -.075em;
-      margin-bottom: 30px;
+      margin-bottom: 34px;
+      font-weight: 820;
     }
 
-    .world-scroll {
-      display: flex;
-      overflow-x: auto;
+    .world-grid {
+      display: grid;
       gap: 16px;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 12px;
-      margin-inline: -22px;
-      padding-inline: 22px;
     }
 
     .world {
-      flex: 0 0 84%;
-      min-height: 520px;
-      scroll-snap-align: center;
-      border-radius: 34px;
+      min-height: 360px;
+      border-radius: 32px;
       padding: 26px;
-      color: white;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.78);
+      box-shadow: 0 26px 70px rgba(0,63,57,.08);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
-      position: relative;
-      background: var(--blue);
-      box-shadow: 0 32px 90px rgba(14,42,68,.18);
+      opacity: 0;
+      transform: translateY(34px);
+      animation: rise .8s ease forwards;
     }
 
-    .world::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 80% 10%, rgba(199,164,108,.48), transparent 35%),
-        linear-gradient(180deg, rgba(14,42,68,.1), rgba(14,42,68,.92));
-      z-index: 1;
-    }
+    .world:nth-child(2) { animation-delay: .08s; }
+    .world:nth-child(3) { animation-delay: .16s; }
+    .world:nth-child(4) { animation-delay: .24s; }
+    .world:nth-child(5) { animation-delay: .32s; }
+    .world:nth-child(6) { animation-delay: .40s; }
 
-    .world > * { position: relative; z-index: 2; }
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     .world small {
-      color: var(--sand);
-      font-weight: 950;
-      letter-spacing: .18em;
-      text-transform: uppercase;
+      color: var(--hanse);
+      font-weight: 900;
       font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
     }
 
     .world h3 {
       margin-top: 14px;
-      font-size: 46px;
-      line-height: .9;
-      letter-spacing: -.065em;
+      font-size: 38px;
+      line-height: .95;
+      letter-spacing: -.055em;
+      color: var(--hanse-dark);
     }
 
     .world p {
       margin-top: 18px;
-      font-size: 17px;
-      line-height: 1.35;
-      color: rgba(255,255,255,.78);
+      font-size: 16px;
+      line-height: 1.45;
+      color: var(--muted);
       max-width: 330px;
     }
 
     .world a {
-      display: inline-flex;
-      width: fit-content;
-      padding: 14px 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.14);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,.18);
+      color: var(--hanse);
       font-weight: 850;
     }
 
     .advisor {
-      background: var(--soft);
-      border-radius: 42px 42px 0 0;
-    }
-
-    .advisor-card {
-      min-height: 720px;
-      border-radius: 38px;
-      background:
-        linear-gradient(180deg, rgba(14,42,68,.05), rgba(14,42,68,.5)),
-        radial-gradient(circle at 80% 10%, rgba(199,164,108,.42), transparent 35%),
-        var(--navy);
+      background: var(--hanse-dark);
       color: white;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      overflow: hidden;
     }
 
-    .advisor-card h2 {
-      font-size: clamp(42px, 11vw, 86px);
-      line-height: .88;
-      letter-spacing: -.075em;
-      max-width: 760px;
-    }
-
-    .advisor-card p {
-      margin-top: 24px;
-      font-size: 19px;
-      line-height: 1.35;
-      color: rgba(255,255,255,.75);
-      max-width: 620px;
-    }
-
-    .split {
+    .advisor-layout {
       display: grid;
-      gap: 14px;
-      margin-top: 16px;
+      gap: 34px;
+      align-items: center;
     }
 
-    .mini {
-      border-radius: 28px;
-      background: rgba(255,255,255,.72);
-      padding: 22px;
-      min-height: 180px;
+    .advisor-image {
+      min-height: 460px;
+      border-radius: 36px;
+      background:
+        linear-gradient(180deg, rgba(0,63,57,.08), rgba(0,63,57,.45)),
+        url("assets/stephan.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,.14);
     }
 
-    .mini strong {
-      font-size: 24px;
-      letter-spacing: -.045em;
+    .advisor h2 {
+      font-size: clamp(42px, 10vw, 84px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      font-weight: 820;
     }
 
-    .mini span {
-      display: block;
-      margin-top: 12px;
-      color: var(--muted);
+    .advisor p {
+      margin-top: 24px;
+      max-width: 580px;
+      font-size: 20px;
       line-height: 1.4;
+      color: rgba(255,255,255,.74);
+    }
+
+    .values {
+      margin-top: 34px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .value {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.84);
     }
 
     .contact {
-      background: var(--navy);
-      color: white;
-      min-height: 86svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      background: var(--cream);
+    }
+
+    .contact-card {
+      border-radius: 38px;
+      padding: 34px;
+      background: white;
+      box-shadow: 0 30px 90px rgba(0,63,57,.1);
     }
 
     .contact h2 {
-      font-size: clamp(46px, 13vw, 104px);
-      line-height: .86;
-      letter-spacing: -.08em;
-      max-width: 860px;
+      font-size: clamp(42px, 10vw, 84px);
+      line-height: .9;
+      letter-spacing: -.075em;
     }
 
     .contact p {
-      margin-top: 26px;
-      color: rgba(255,255,255,.72);
-      font-size: 20px;
-      line-height: 1.35;
-      max-width: 560px;
+      margin-top: 20px;
+      max-width: 540px;
+      font-size: 19px;
+      line-height: 1.4;
+      color: var(--muted);
     }
 
-    .contact-box {
-      margin-top: 32px;
+    form {
+      margin-top: 28px;
       display: grid;
       gap: 12px;
-      max-width: 620px;
     }
 
     input, textarea {
       width: 100%;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.08);
-      color: white;
-      border-radius: 20px;
-      padding: 18px;
+      border: 1px solid rgba(0,95,86,.16);
+      background: #FAF8F3;
+      border-radius: 18px;
+      padding: 17px;
       font: inherit;
       outline: none;
     }
 
-    input::placeholder, textarea::placeholder {
-      color: rgba(255,255,255,.48);
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
+    textarea { min-height: 120px; resize: vertical; }
 
     button {
       border: 0;
       cursor: pointer;
-      background: var(--sand);
-      color: var(--navy);
+      background: var(--hanse);
+      color: white;
     }
 
     footer {
-      background: var(--navy);
-      color: rgba(255,255,255,.52);
       padding: 26px 22px;
-      border-top: 1px solid rgba(255,255,255,.1);
-      font-size: 13px;
+      background: var(--hanse-dark);
+      color: rgba(255,255,255,.6);
       display: flex;
       flex-direction: column;
       gap: 10px;
+      font-size: 13px;
     }
 
-    footer a {
-      color: rgba(255,255,255,.72);
-      margin-right: 14px;
+    footer a { color: rgba(255,255,255,.78); margin-right: 14px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .8s ease, transform .8s ease;
     }
 
-    @media (min-width: 760px) {
-      .hero, section { padding-left: 44px; padding-right: 44px; }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 780px) {
+      nav { display: flex; }
 
       .actions {
         flex-direction: row;
@@ -439,16 +421,32 @@
 
       .btn { min-width: 190px; }
 
-      .hero-bottom {
+      section { padding: 120px 44px; }
+
+      .hero { padding-left: 44px; padding-right: 44px; }
+
+      .world-grid {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .world {
-        flex-basis: 48%;
+      .advisor-layout {
+        grid-template-columns: .9fr 1.1fr;
       }
 
-      .split {
+      .values {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      form {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      textarea {
+        grid-column: 1 / 3;
+      }
+
+      button {
+        grid-column: 3;
       }
 
       footer {
@@ -456,170 +454,153 @@
         justify-content: space-between;
       }
     }
-
-    @media (min-width: 1180px) {
-      .world {
-        flex-basis: 32%;
-      }
-
-      .world-scroll {
-        overflow: visible;
-      }
-    }
   </style>
 </head>
 
 <body>
+  <header>
+    <a class="brand" href="#">
+      <span class="mark">HK</span>
+      <span>Hanse-Konzept</span>
+    </a>
+
+    <nav>
+      <a href="#konzept">Konzept</a>
+      <a href="#themen">Themen</a>
+      <a href="#beratung">Beratung</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a class="header-cta" href="#kontakt">Anfragen</a>
+  </header>
+
   <main>
     <section class="hero">
-      <header>
-        <div class="logo">
-          <div class="logo-mark">HK</div>
-          <span>Hanse-Konzept</span>
-        </div>
-        <a class="menu" href="#kontakt">Anfragen</a>
-      </header>
-
-      <div class="hero-main">
-        <div class="label">Bremen · Beratung · Struktur</div>
-        <h1>Klarheit für das, was bleibt.</h1>
-        <p class="hero-text">
-          Gesundheit. Tiergesundheit. Vorsorge. Recht. Unternehmen. Immobilien.
-          Nicht als Produktwelt. Als Konzept.
+      <div class="hero-inner reveal">
+        <div class="kicker">Aus Bremen. Für Menschen mit Verantwortung.</div>
+        <h1>Strategisch denken.<br><span class="italic">Sicher entscheiden.</span></h1>
+        <p>
+          Hanse-Konzept ordnet Gesundheit, Tiergesundheit, Vorsorge, Recht, Unternehmen und Immobilien so,
+          dass daraus keine Sammlung von Verträgen entsteht — sondern ein tragfähiges Konzept.
         </p>
 
         <div class="actions">
           <a class="btn primary" href="#kontakt">Gespräch anfragen</a>
-          <a class="btn secondary" href="#welten">Themen ansehen</a>
-        </div>
-      </div>
-
-      <div class="hero-bottom">
-        <div class="glass">
-          <strong>Heute</strong>
-          <span>Für ARAG-Kunden schlüssig. Klar in Gesundheit, Recht und Absicherung.</span>
-        </div>
-        <div class="glass">
-          <strong>Morgen</strong>
-          <span>Vorbereitet für eine stärkere Hanse-Ausrichtung mit Gesundheit und Tier als tragende Säulen.</span>
-        </div>
-        <div class="glass">
-          <strong>Immer</strong>
-          <span>Persönlich aus Bremen. Verständlich. Langfristig gedacht.</span>
+          <a class="btn secondary" href="#themen">Themen ansehen</a>
         </div>
       </div>
     </section>
 
-    <section class="intro">
-      <div>
-        <div class="label">Der Unterschied</div>
-        <h2>Eine gute Entscheidung beginnt nicht mit einem Tarif.</h2>
+    <section id="konzept" class="statement">
+      <div class="wrap reveal">
+        <div class="kicker">Beratung mit Struktur</div>
+        <h2>Es geht nicht darum, mehr abzusichern. Sondern das Richtige.</h2>
         <p>
-          Sie beginnt mit Einordnung. Was ist wichtig? Was ist teuer, wenn es falsch läuft?
-          Was kann warten — und was nicht?
+          Gute Beratung trennt Wichtiges von Nebensache. Sie zeigt, welche Risiken heute relevant sind,
+          welche Entscheidungen langfristig wirken und wo Aktionismus nur Geld kostet.
         </p>
       </div>
     </section>
 
-    <section id="welten" class="worlds">
-      <h2 class="section-title">Die sechs Säulen.</h2>
+    <section id="themen" class="worlds">
+      <div class="wrap">
+        <div class="kicker reveal">Unsere Themen</div>
+        <h2 class="section-title reveal">Sechs Säulen. Ein Konzept.</h2>
 
-      <div class="world-scroll">
-        <article class="world">
-          <div>
-            <small>01 · Mensch</small>
-            <h3>Gesundheit</h3>
-            <p>Private Krankenversicherung, Zusatzschutz und Pflege — mit Blick auf Beitrag, Leistung und Planbarkeit.</p>
-          </div>
-          <a href="#">Öffnen →</a>
-        </article>
+        <div class="world-grid">
+          <article class="world">
+            <div>
+              <small>01 · Gesundheit</small>
+              <h3>Gesundheit</h3>
+              <p>PKV, Zusatzschutz und Pflege — eingeordnet nach Beitrag, Leistung und langfristiger Stabilität.</p>
+            </div>
+            <a href="#">Mehr erfahren →</a>
+          </article>
 
-        <article class="world">
-          <div>
-            <small>02 · Hund & Katze</small>
-            <h3>Tiergesundheit</h3>
-            <p>Ein Kernbereich der Zukunft. Medizinische Versorgung für Tiere wird hochwertiger — und teurer.</p>
-          </div>
-          <a href="#">Öffnen →</a>
-        </article>
+          <article class="world">
+            <div>
+              <small>02 · Tiergesundheit</small>
+              <h3>Hund & Katze</h3>
+              <p>Tiermedizin wird besser — und teurer. Absicherung ist hier kein Nebenthema, sondern Zukunftssäule.</p>
+            </div>
+            <a href="#">Mehr erfahren →</a>
+          </article>
 
-        <article class="world">
-          <div>
-            <small>03 · Zukunft</small>
-            <h3>Vorsorge</h3>
-            <p>Betriebliche Altersversorgung, Arbeitskraft und finanzielle Reserven mit Struktur statt Bauchgefühl.</p>
-          </div>
-          <a href="#">Öffnen →</a>
-        </article>
+          <article class="world">
+            <div>
+              <small>03 · Vorsorge</small>
+              <h3>Vorsorge</h3>
+              <p>Betriebliche Altersversorgung, Arbeitskraft und finanzielle Reserven mit System statt Bauchgefühl.</p>
+            </div>
+            <a href="#">Mehr erfahren →</a>
+          </article>
 
-        <article class="world">
-          <div>
-            <small>04 · Konflikte</small>
-            <h3>Recht</h3>
-            <p>Privat, Verkehr, Wohnen und Unternehmen — rechtliche Risiken dort absichern, wo Streit teuer wird.</p>
-          </div>
-          <a href="#">Öffnen →</a>
-        </article>
+          <article class="world">
+            <div>
+              <small>04 · Recht</small>
+              <h3>Recht</h3>
+              <p>Rechtsschutz dort, wo Konflikte teuer werden: privat, beruflich, im Verkehr und im Unternehmen.</p>
+            </div>
+            <a href="#">Mehr erfahren →</a>
+          </article>
 
-        <article class="world">
-          <div>
-            <small>05 · Betrieb</small>
-            <h3>Unternehmen</h3>
-            <p>Haftung, Inhalt, Cyber, Mitarbeiter und Forderungen: Risiken erkennen, bevor sie Liquidität kosten.</p>
-          </div>
-          <a href="#">Öffnen →</a>
-        </article>
+          <article class="world">
+            <div>
+              <small>05 · Unternehmen</small>
+              <h3>Unternehmen</h3>
+              <p>Haftung, Betrieb, Cyber, Mitarbeiter und Forderungen: Risiken erkennen, bevor sie Liquidität kosten.</p>
+            </div>
+            <a href="#">Mehr erfahren →</a>
+          </article>
 
-        <article class="world">
-          <div>
-            <small>06 · Werte</small>
-            <h3>Immobilien</h3>
-            <p>Eigentum, Vermietung und Kapitalanlage absichern — mit Blick auf Substanz und langfristige Werte.</p>
-          </div>
-          <a href="#">Öffnen →</a>
-        </article>
+          <article class="world">
+            <div>
+              <small>06 · Immobilien</small>
+              <h3>Immobilien</h3>
+              <p>Eigentum, Vermietung und Werte absichern — mit Blick auf Substanz, Einnahmen und Verantwortung.</p>
+            </div>
+            <a href="#">Mehr erfahren →</a>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="advisor">
-      <div class="advisor-card">
-        <div class="label">Persönlich betreut</div>
-        <h2>Beratung aus Bremen. Nicht aus dem Callcenter.</h2>
-        <p>
-          Hanse-Konzept ist die persönliche Beratungsplattform von Stephan Brinkmann.
-          Für Menschen, die keine Produktshow brauchen, sondern Klarheit.
-        </p>
-      </div>
+    <section id="beratung" class="advisor">
+      <div class="wrap advisor-layout">
+        <div class="advisor-image reveal"></div>
 
-      <div class="split">
-        <div class="mini">
-          <strong>Verstehen</strong>
-          <span>Erst Situation, Ziel und Risiko klären. Ohne Druck. Ohne Tarif-Bingo.</span>
-        </div>
-        <div class="mini">
-          <strong>Einordnen</strong>
-          <span>Was ist relevant? Was ist unnötig? Was hat langfristige Wirkung?</span>
-        </div>
-        <div class="mini">
-          <strong>Entscheiden</strong>
-          <span>Am Ende steht eine klare Empfehlung — oder bewusst keine.</span>
+        <div class="reveal">
+          <div class="kicker">Persönlich betreut</div>
+          <h2>Beratung beginnt mit Verstehen.</h2>
+          <p>
+            Hanse-Konzept ist die persönliche Beratungsplattform von Stephan Brinkmann in Bremen.
+            Für Menschen, die keine Produktshow suchen, sondern Klarheit vor einer Entscheidung.
+          </p>
+
+          <div class="values">
+            <div class="value">Persönlich statt anonym</div>
+            <div class="value">Verständlich statt verklausuliert</div>
+            <div class="value">Langfristig statt kurzfristig</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="kontakt" class="contact">
-      <div class="label">Starten</div>
-      <h2>Der erste Schritt dauert zwei Minuten.</h2>
-      <p>
-        Kurze Anfrage senden. Danach klären wir, ob und wie ein Gespräch sinnvoll ist.
-      </p>
+      <div class="wrap contact-card reveal">
+        <div class="kicker">Jetzt starten</div>
+        <h2>Lassen Sie uns ins Gespräch kommen.</h2>
+        <p>
+          Eine kurze Anfrage reicht. Danach klären wir, worum es geht und ob ein Gespräch sinnvoll ist.
+        </p>
 
-      <div class="contact-box">
-        <input type="text" placeholder="Name" />
-        <input type="tel" placeholder="Telefon" />
-        <input type="email" placeholder="E-Mail" />
-        <textarea placeholder="Worum geht es?"></textarea>
-        <button class="btn" type="button">Rückruf anfragen</button>
+        <form>
+          <input type="text" placeholder="Name" />
+          <input type="tel" placeholder="Telefon" />
+          <input type="email" placeholder="E-Mail" />
+          <textarea placeholder="Worum geht es?"></textarea>
+          <button class="btn" type="button">Rückruf anfordern</button>
+        </form>
       </div>
     </section>
   </main>
@@ -631,5 +612,25 @@
       <a href="#">Datenschutz</a>
     </div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      const y = window.scrollY;
+      header.style.transform = y > 40
+        ? "translateX(-50%) scale(.985)"
+        : "translateX(-50%) scale(1)";
+    });
+  </script>
 </body>
 </html>
