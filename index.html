@@ -10,13 +10,13 @@
       --hanse: #005F56;
       --hanse-dark: #003F39;
       --hanse-deep: #002E2A;
-      --hanse-soft: #DDEBE8;
       --cream: #F6F1E8;
       --cream-2: #EFE7DA;
       --sand: #C8A96A;
       --text: #13201F;
-      --muted: #64716F;
+      --muted: #65716E;
       --white: #FFFFFF;
+      --line: rgba(0,95,86,.16);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,52 +34,52 @@
 
     header {
       position: fixed;
-      top: 18px;
+      top: 16px;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(100% - 32px);
+      width: calc(100% - 28px);
       max-width: 1180px;
-      z-index: 50;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: 999px;
-      background: rgba(246, 241, 232, .72);
-      backdrop-filter: blur(22px);
-      border: 1px solid rgba(255,255,255,.65);
-      box-shadow: 0 20px 60px rgba(0,0,0,.08);
-      transition: transform .35s ease, background .35s ease, box-shadow .35s ease;
+      background: rgba(246, 241, 232, .78);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,.7);
+      box-shadow: 0 18px 60px rgba(0,63,57,.10);
+      transition: .35s ease;
     }
 
     header.scrolled {
-      background: rgba(246, 241, 232, .90);
-      box-shadow: 0 18px 54px rgba(0,63,57,.12);
       transform: translateX(-50%) scale(.985);
+      background: rgba(246, 241, 232, .94);
+      box-shadow: 0 18px 54px rgba(0,63,57,.16);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       font-weight: 850;
       letter-spacing: .13em;
       text-transform: uppercase;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--hanse-dark);
     }
 
     .mark {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 700;
       color: var(--hanse);
       border: 1px solid rgba(0,95,86,.28);
-      background: rgba(255,255,255,.55);
+      background: rgba(255,255,255,.64);
     }
 
     nav {
@@ -96,49 +96,84 @@
       padding: 12px 18px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .hero {
       min-height: 100svh;
+      padding: 112px 18px 36px;
+      display: grid;
+      align-items: end;
       position: relative;
-      display: flex;
-      align-items: flex-end;
-      padding: 130px 22px 42px;
       overflow: hidden;
       background:
-        linear-gradient(90deg, rgba(246,241,232,.98) 0%, rgba(246,241,232,.86) 42%, rgba(246,241,232,.18) 100%),
-        linear-gradient(180deg, rgba(0,63,57,.08), rgba(0,63,57,.34)),
-        url("assets/bremen-maritim.jpg");
-      background-size: cover;
-      background-position: center;
+        radial-gradient(circle at 100% 0%, rgba(0,95,86,.13), transparent 35%),
+        linear-gradient(180deg, #FAF7F0 0%, var(--cream) 100%);
     }
 
-    .hero::before {
+    .hero-wrap {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .hero-media {
+      order: 1;
+      position: relative;
+      height: 280px;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 34px 90px rgba(0,63,57,.16);
+      transform: translateY(0);
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 68% center;
+      display: block;
+      filter: saturate(.96) contrast(1.03);
+      transform: scale(1.03);
+    }
+
+    .hero-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 82% 20%, rgba(0,95,86,.26), transparent 38%);
-      z-index: 0;
-      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,63,57,.42)),
+        radial-gradient(circle at 18% 20%, rgba(246,241,232,.42), transparent 34%);
     }
 
-    .hero::after {
-      content: "";
+    .seal {
       position: absolute;
-      inset: auto -20% -18% -20%;
-      height: 32%;
-      background: var(--cream);
-      border-radius: 100% 100% 0 0;
-      z-index: 1;
+      right: 18px;
+      bottom: 18px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: rgba(0,95,86,.82);
+      color: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.42);
+      backdrop-filter: blur(18px);
+      z-index: 2;
     }
 
-    .hero-inner {
+    .hero-content {
+      order: 2;
       position: relative;
       z-index: 2;
-      max-width: 1180px;
-      width: 100%;
-      margin: 0 auto;
     }
 
     .kicker {
@@ -147,15 +182,15 @@
       font-weight: 900;
       letter-spacing: .18em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      max-width: 780px;
-      font-size: clamp(54px, 12vw, 116px);
-      line-height: .86;
-      letter-spacing: -.08em;
-      font-weight: 850;
+      max-width: 820px;
+      font-size: clamp(54px, 13vw, 118px);
+      line-height: .84;
+      letter-spacing: -.085em;
+      font-weight: 880;
     }
 
     .italic {
@@ -163,14 +198,14 @@
       font-style: italic;
       font-weight: 400;
       color: var(--hanse);
-      letter-spacing: -.06em;
+      letter-spacing: -.065em;
     }
 
     .hero p {
-      margin-top: 28px;
-      max-width: 520px;
+      margin-top: 26px;
+      max-width: 560px;
       font-size: clamp(19px, 4.8vw, 25px);
-      line-height: 1.25;
+      line-height: 1.28;
       color: rgba(19,32,31,.76);
       letter-spacing: -.035em;
     }
@@ -179,8 +214,8 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 34px;
-      max-width: 360px;
+      margin-top: 32px;
+      max-width: 380px;
     }
 
     .btn {
@@ -189,6 +224,8 @@
       font-size: 15px;
       font-weight: 850;
       text-align: center;
+      border: 0;
+      cursor: pointer;
       transition: transform .25s ease, box-shadow .25s ease;
     }
 
@@ -198,7 +235,7 @@
     }
 
     .primary { background: var(--hanse); color: white; }
-    .secondary { background: rgba(255,255,255,.72); color: var(--hanse-dark); border: 1px solid rgba(0,95,86,.18); }
+    .secondary { background: rgba(255,255,255,.76); color: var(--hanse-dark); border: 1px solid var(--line); }
 
     section {
       padding: 92px 22px;
@@ -209,6 +246,33 @@
       margin: 0 auto;
     }
 
+    .marquee {
+      padding: 22px 0;
+      background: var(--hanse-dark);
+      color: rgba(255,255,255,.82);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 34px;
+      animation: marquee 28s linear infinite;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    .marquee span {
+      color: var(--sand);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     .statement {
       min-height: 72svh;
       display: flex;
@@ -217,26 +281,54 @@
     }
 
     .statement h2 {
-      max-width: 950px;
-      font-size: clamp(42px, 10vw, 96px);
+      max-width: 970px;
+      font-size: clamp(42px, 10vw, 98px);
       line-height: .9;
-      letter-spacing: -.075em;
-      font-weight: 820;
+      letter-spacing: -.078em;
+      font-weight: 840;
     }
 
     .statement p {
       margin-top: 28px;
-      max-width: 650px;
+      max-width: 680px;
       font-size: 21px;
       line-height: 1.38;
       color: var(--muted);
     }
 
+    .proof {
+      margin-top: 40px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .proof-item {
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(0,95,86,.12);
+    }
+
+    .proof-item strong {
+      display: block;
+      font-size: 34px;
+      letter-spacing: -.055em;
+      color: var(--hanse-dark);
+    }
+
+    .proof-item span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
     .worlds {
       background:
         radial-gradient(circle at 80% 0%, rgba(0,95,86,.18), transparent 34%),
-        linear-gradient(180deg, var(--hanse-soft), var(--cream));
-      border-radius: 42px 42px 0 0;
+        linear-gradient(180deg, #DDEBE8, var(--cream));
+      border-radius: 44px 44px 0 0;
       overflow: hidden;
     }
 
@@ -245,7 +337,7 @@
       line-height: .9;
       letter-spacing: -.075em;
       margin-bottom: 18px;
-      font-weight: 820;
+      font-weight: 840;
     }
 
     .section-sub {
@@ -267,13 +359,11 @@
       margin-right: -22px;
     }
 
-    .world-grid::-webkit-scrollbar {
-      display: none;
-    }
+    .world-grid::-webkit-scrollbar { display: none; }
 
     .world {
       flex: 0 0 84%;
-      min-height: 470px;
+      min-height: 500px;
       scroll-snap-align: center;
       border-radius: 34px;
       padding: 28px;
@@ -312,10 +402,7 @@
       z-index: 0;
     }
 
-    .world > * {
-      position: relative;
-      z-index: 1;
-    }
+    .world > * { position: relative; z-index: 1; }
 
     .world small {
       color: rgba(255,255,255,.68);
@@ -339,6 +426,20 @@
       line-height: 1.42;
       color: rgba(255,255,255,.78);
       max-width: 340px;
+    }
+
+    .world ul {
+      list-style: none;
+      margin-top: 22px;
+      display: grid;
+      gap: 8px;
+      color: rgba(255,255,255,.78);
+      font-size: 15px;
+    }
+
+    .world li::before {
+      content: "— ";
+      color: var(--sand);
     }
 
     .world a {
@@ -374,22 +475,22 @@
     }
 
     .advisor-image {
-      min-height: 460px;
+      min-height: 560px;
       border-radius: 36px;
       background:
-        linear-gradient(180deg, rgba(0,63,57,.08), rgba(0,63,57,.45)),
+        linear-gradient(180deg, rgba(0,63,57,.03), rgba(0,63,57,.34)),
         url("assets/stephan.jpg");
       background-size: cover;
       background-position: center;
       border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 30px 90px rgba(0,0,0,.22);
+      box-shadow: 0 30px 90px rgba(0,0,0,.24);
     }
 
     .advisor h2 {
       font-size: clamp(42px, 10vw, 84px);
       line-height: .9;
       letter-spacing: -.075em;
-      font-weight: 820;
+      font-weight: 840;
     }
 
     .advisor p {
@@ -457,12 +558,7 @@
 
     textarea { min-height: 120px; resize: vertical; }
 
-    button {
-      border: 0;
-      cursor: pointer;
-      background: var(--hanse);
-      color: white;
-    }
+    button { background: var(--hanse); color: white; }
 
     footer {
       padding: 26px 22px;
@@ -476,41 +572,40 @@
 
     footer a { color: rgba(255,255,255,.78); margin-right: 14px; }
 
-    .reveal {
+    .reveal, .fade-left, .zoom-in {
       opacity: 0;
-      transform: translateY(42px);
       transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1);
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { transform: translateY(42px); }
+    .fade-left { transform: translateX(-38px); }
+    .zoom-in { transform: scale(.94); }
 
-    .fade-left {
-      opacity: 0;
-      transform: translateX(-38px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1);
-    }
-
-    .fade-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .zoom-in {
-      opacity: 0;
-      transform: scale(.94);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1);
-    }
-
+    .reveal.visible,
+    .fade-left.visible,
     .zoom-in.visible {
       opacity: 1;
-      transform: scale(1);
+      transform: translate(0) scale(1);
     }
 
     @media (min-width: 780px) {
       nav { display: flex; }
+
+      .hero {
+        padding: 132px 44px 70px;
+      }
+
+      .hero-wrap {
+        grid-template-columns: 1fr .92fr;
+        min-height: calc(100svh - 202px);
+      }
+
+      .hero-content { order: 1; align-self: center; }
+      .hero-media {
+        order: 2;
+        height: min(72svh, 720px);
+        align-self: stretch;
+      }
 
       .actions {
         flex-direction: row;
@@ -521,7 +616,9 @@
 
       section { padding: 120px 44px; }
 
-      .hero { padding-left: 44px; padding-right: 44px; }
+      .proof {
+        grid-template-columns: repeat(4, 1fr);
+      }
 
       .world-grid {
         display: grid;
@@ -533,12 +630,10 @@
 
       .world {
         flex: unset;
-        min-height: 430px;
+        min-height: 470px;
       }
 
-      .swipe-hint {
-        display: none;
-      }
+      .swipe-hint { display: none; }
 
       .advisor-layout {
         grid-template-columns: .9fr 1.1fr;
@@ -587,20 +682,34 @@
 
   <main>
     <section class="hero">
-      <div class="hero-inner reveal">
-        <div class="kicker">Aus Bremen. Für Menschen mit Verantwortung.</div>
-        <h1>Strategisch denken.<br><span class="italic">Sicher entscheiden.</span></h1>
-        <p>
-          Hanse-Konzept ordnet Gesundheit, Tiergesundheit, Vorsorge, Recht, Unternehmen und Immobilien so,
-          dass daraus keine Sammlung von Verträgen entsteht — sondern ein tragfähiges Konzept.
-        </p>
+      <div class="hero-wrap">
+        <div class="hero-content reveal">
+          <div class="kicker">Aus Bremen. Für Menschen mit Verantwortung.</div>
+          <h1>Klarheit vor Entscheidungen.<br><span class="italic">Nicht danach.</span></h1>
+          <p>
+            Hanse-Konzept bringt Gesundheit, Tiergesundheit, Vorsorge, Recht, Unternehmen und Immobilien in eine klare Struktur.
+            Für Entscheidungen, die langfristig tragen müssen.
+          </p>
 
-        <div class="actions">
-          <a class="btn primary" href="#kontakt">Gespräch anfragen</a>
-          <a class="btn secondary" href="#themen">Themen ansehen</a>
+          <div class="actions">
+            <a class="btn primary" href="#kontakt">Gespräch anfragen</a>
+            <a class="btn secondary" href="#themen">Themen ansehen</a>
+          </div>
+        </div>
+
+        <div class="hero-media zoom-in">
+          <img src="assets/bremen-maritim.jpg" alt="Bremen an der Weser" />
+          <div class="seal">Bremen<br>Konzept<br>Beratung</div>
         </div>
       </div>
     </section>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <div>Gesundheit <span>·</span> Tiergesundheit <span>·</span> Vorsorge <span>·</span> Recht <span>·</span> Unternehmen <span>·</span> Immobilien <span>·</span></div>
+        <div>Gesundheit <span>·</span> Tiergesundheit <span>·</span> Vorsorge <span>·</span> Recht <span>·</span> Unternehmen <span>·</span> Immobilien <span>·</span></div>
+      </div>
+    </div>
 
     <section id="konzept" class="statement">
       <div class="wrap reveal">
@@ -610,6 +719,13 @@
           Gute Beratung trennt Wichtiges von Nebensache. Sie zeigt, welche Risiken heute relevant sind,
           welche Entscheidungen langfristig wirken und wo Aktionismus nur Geld kostet.
         </p>
+
+        <div class="proof">
+          <div class="proof-item"><strong>6</strong><span>Themenfelder unter einer Beratungslogik</span></div>
+          <div class="proof-item"><strong>1</strong><span>fester Ansprechpartner statt anonymer Prozess</span></div>
+          <div class="proof-item"><strong>Bremen</strong><span>persönlich erreichbar, digital flexibel</span></div>
+          <div class="proof-item"><strong>Langfristig</strong><span>Entscheidungen mit Blick auf morgen</span></div>
+        </div>
       </div>
     </section>
 
@@ -626,9 +742,14 @@
             <div>
               <small>01 · Gesundheit</small>
               <h3>Gesundheit</h3>
-              <p>PKV, Zusatzschutz und Pflege — eingeordnet nach Beitrag, Leistung und langfristiger Stabilität.</p>
+              <p>Private Krankenversicherung, Zusatzschutz und Pflege — eingeordnet nach Beitrag, Leistung und langfristiger Stabilität.</p>
+              <ul>
+                <li>PKV & GKV-Einordnung</li>
+                <li>Zusatzschutz</li>
+                <li>Pflegeabsicherung</li>
+              </ul>
             </div>
-            <a href="#">Mehr erfahren →</a>
+            <a href="/gesundheit/">Mehr erfahren →</a>
           </article>
 
           <article class="world zoom-in">
@@ -636,8 +757,13 @@
               <small>02 · Tiergesundheit</small>
               <h3>Hund & Katze</h3>
               <p>Tiermedizin wird besser — und teurer. Absicherung ist hier kein Nebenthema, sondern Zukunftssäule.</p>
+              <ul>
+                <li>Hundekrankenversicherung</li>
+                <li>Katzenkrankenversicherung</li>
+                <li>OP- und Vollschutz</li>
+              </ul>
             </div>
-            <a href="#">Mehr erfahren →</a>
+            <a href="/tiergesundheit/">Mehr erfahren →</a>
           </article>
 
           <article class="world zoom-in">
@@ -645,8 +771,13 @@
               <small>03 · Vorsorge</small>
               <h3>Vorsorge</h3>
               <p>Betriebliche Altersversorgung, Arbeitskraft und finanzielle Reserven mit System statt Bauchgefühl.</p>
+              <ul>
+                <li>bAV</li>
+                <li>Arbeitskraft</li>
+                <li>Familienabsicherung</li>
+              </ul>
             </div>
-            <a href="#">Mehr erfahren →</a>
+            <a href="/vorsorge/">Mehr erfahren →</a>
           </article>
 
           <article class="world zoom-in">
@@ -654,8 +785,13 @@
               <small>04 · Recht</small>
               <h3>Recht</h3>
               <p>Rechtsschutz dort, wo Konflikte teuer werden: privat, beruflich, im Verkehr und im Unternehmen.</p>
+              <ul>
+                <li>Privat & Verkehr</li>
+                <li>Wohnen & Vermieten</li>
+                <li>Gewerblicher Rechtsschutz</li>
+              </ul>
             </div>
-            <a href="#">Mehr erfahren →</a>
+            <a href="/recht/">Mehr erfahren →</a>
           </article>
 
           <article class="world zoom-in">
@@ -663,8 +799,13 @@
               <small>05 · Unternehmen</small>
               <h3>Unternehmen</h3>
               <p>Haftung, Betrieb, Cyber, Mitarbeiter und Forderungen: Risiken erkennen, bevor sie Liquidität kosten.</p>
+              <ul>
+                <li>Haftung & Betrieb</li>
+                <li>Cyber & Daten</li>
+                <li>Forderungen & Mitarbeiter</li>
+              </ul>
             </div>
-            <a href="#">Mehr erfahren →</a>
+            <a href="/unternehmen/">Mehr erfahren →</a>
           </article>
 
           <article class="world zoom-in">
@@ -672,8 +813,13 @@
               <small>06 · Immobilien</small>
               <h3>Immobilien</h3>
               <p>Eigentum, Vermietung und Werte absichern — mit Blick auf Substanz, Einnahmen und Verantwortung.</p>
+              <ul>
+                <li>Wohngebäude</li>
+                <li>Vermietung</li>
+                <li>Mietausfall & Recht</li>
+              </ul>
             </div>
-            <a href="#">Mehr erfahren →</a>
+            <a href="/immobilien/">Mehr erfahren →</a>
           </article>
         </div>
 
@@ -733,9 +879,7 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add("visible");
-          }, index * 80);
+          setTimeout(() => entry.target.classList.add("visible"), index * 80);
         }
       });
     }, { threshold: 0.16 });
@@ -744,14 +888,7 @@
 
     window.addEventListener("scroll", () => {
       const header = document.querySelector("header");
-      const hero = document.querySelector(".hero");
-      const y = window.scrollY;
-
-      header.classList.toggle("scrolled", y > 40);
-
-      if (hero) {
-        hero.style.backgroundPosition = `center ${y * 0.18}px`;
-      }
+      header.classList.toggle("scrolled", window.scrollY > 40);
     });
   </script>
 </body>
