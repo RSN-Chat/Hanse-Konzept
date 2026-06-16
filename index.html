@@ -3,29 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanse-Konzept | Gesundheit. Vorsorge. Recht.</title>
-  <meta name="description" content="Hanse-Konzept aus Bremen: Klarheit bei Gesundheit, Vorsorge, Tiergesundheit, Recht, Unternehmen und Immobilien." />
+  <title>Hanse-Konzept | Klarheit für Gesundheit, Vorsorge und Recht</title>
 
   <style>
     :root {
-      --navy: #112B46;
+      --navy: #0E2A44;
       --blue: #173D63;
-      --sand: #C4A16A;
-      --paper: #F6F2EA;
-      --white: #FFFFFF;
-      --muted: #6F7782;
-      --line: rgba(17, 43, 70, .14);
+      --sand: #C7A46C;
+      --paper: #F4EFE7;
+      --soft: #E8DDD0;
+      --white: #fff;
+      --muted: rgba(14, 42, 68, .68);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
@@ -34,388 +27,359 @@
       overflow-x: hidden;
     }
 
+    a { color: inherit; text-decoration: none; }
+
     .hero {
       min-height: 100svh;
       position: relative;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 22px;
+      overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(246,242,234,.68), rgba(246,242,234,.95)),
-        radial-gradient(circle at 80% 20%, rgba(196,161,106,.26), transparent 42%),
-        linear-gradient(135deg, #F8F5EF 0%, #E9EEF2 52%, #F3EADF 100%);
-      isolation: isolate;
+        linear-gradient(180deg, rgba(244,239,231,.28), rgba(244,239,231,.9)),
+        url("https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=2400&q=80");
+      background-size: cover;
+      background-position: center;
     }
 
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      inset: auto -20% -22% -20%;
-      height: 46%;
-      background: var(--navy);
-      border-radius: 100% 100% 0 0;
-      z-index: -1;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(199,164,108,.38), transparent 34%),
+        linear-gradient(90deg, rgba(244,239,231,.95) 0%, rgba(244,239,231,.62) 48%, rgba(14,42,68,.18) 100%);
+      z-index: 0;
+    }
+
+    header,
+    .hero-main,
+    .hero-bottom {
+      position: relative;
+      z-index: 2;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      position: relative;
-      z-index: 2;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
-      gap: 14px;
-      letter-spacing: .12em;
-      font-weight: 800;
-      font-size: 15px;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
       text-transform: uppercase;
+      font-size: 13px;
     }
 
-    .mark {
+    .logo-mark {
       width: 42px;
       height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--navy) 0 50%, var(--sand) 50% 100%);
+      border-radius: 14px;
+      background: var(--navy);
+      color: var(--sand);
       display: grid;
       place-items: center;
-      color: white;
-      font-weight: 900;
-      letter-spacing: -0.08em;
+      font-weight: 950;
+      letter-spacing: -.08em;
     }
 
-    nav {
-      display: none;
-      gap: 22px;
-      font-size: 14px;
-      color: rgba(17,43,70,.78);
+    .menu {
+      font-size: 13px;
+      font-weight: 800;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.54);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.65);
     }
 
-    .hero-content {
-      padding: 9vh 0 6vh;
-      max-width: 940px;
+    .hero-main {
+      padding: 15vh 0 8vh;
+      max-width: 900px;
     }
 
-    .eyebrow {
-      color: var(--sand);
+    .label {
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: .18em;
-      font-size: 12px;
-      font-weight: 800;
+      color: var(--sand);
+      font-weight: 900;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(52px, 12vw, 112px);
-      line-height: .88;
-      letter-spacing: -0.075em;
+      font-size: clamp(56px, 15vw, 128px);
+      line-height: .82;
+      letter-spacing: -.085em;
       max-width: 980px;
     }
 
-    .lead {
+    .hero-text {
       margin-top: 28px;
-      max-width: 580px;
-      font-size: clamp(19px, 4.7vw, 27px);
-      line-height: 1.18;
-      color: rgba(17,43,70,.78);
-      letter-spacing: -0.03em;
+      max-width: 560px;
+      font-size: clamp(19px, 5vw, 27px);
+      line-height: 1.16;
+      letter-spacing: -.035em;
+      color: rgba(14,42,68,.78);
     }
 
-    .cta-row {
+    .actions {
+      margin-top: 34px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 34px;
       max-width: 360px;
     }
 
     .btn {
-      appearance: none;
-      border: 0;
       border-radius: 999px;
       padding: 17px 22px;
+      font-weight: 900;
       font-size: 15px;
-      font-weight: 800;
-      text-decoration: none;
       text-align: center;
-      transition: transform .25s ease, opacity .25s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
+    .primary {
       background: var(--navy);
       color: white;
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,.72);
-      color: var(--navy);
-      border: 1px solid var(--line);
+    .secondary {
+      background: rgba(255,255,255,.62);
       backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.72);
     }
 
-    .hero-strip {
-      position: relative;
-      z-index: 2;
-      color: white;
+    .hero-bottom {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 8px;
     }
 
-    .strip-card {
-      border-top: 1px solid rgba(255,255,255,.18);
-      padding-top: 16px;
+    .glass {
+      background: rgba(255,255,255,.58);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: 0 28px 80px rgba(14,42,68,.12);
     }
 
-    .strip-card strong {
+    .glass strong {
       display: block;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--sand);
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
-    .strip-card span {
-      color: rgba(255,255,255,.76);
-      font-size: 14px;
+    .glass span {
+      font-size: 15px;
       line-height: 1.35;
+      color: rgba(14,42,68,.72);
     }
 
     section {
-      padding: 78px 22px;
+      padding: 84px 22px;
     }
 
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 34px;
+    .intro {
+      background: var(--navy);
+      color: white;
+      min-height: 76svh;
+      display: flex;
+      align-items: center;
     }
 
-    .section-head h2 {
-      font-size: clamp(38px, 9vw, 78px);
-      line-height: .94;
-      letter-spacing: -0.06em;
-      margin-bottom: 18px;
+    .intro h2 {
+      font-size: clamp(44px, 12vw, 104px);
+      line-height: .88;
+      letter-spacing: -.075em;
+      max-width: 950px;
     }
 
-    .section-head p {
-      font-size: 19px;
-      line-height: 1.35;
-      color: var(--muted);
-      max-width: 580px;
+    .intro p {
+      margin-top: 28px;
+      font-size: clamp(19px, 4.8vw, 27px);
+      line-height: 1.25;
+      max-width: 640px;
+      color: rgba(255,255,255,.72);
     }
 
     .worlds {
-      display: grid;
-      gap: 18px;
+      background: var(--paper);
+    }
+
+    .section-title {
+      font-size: clamp(42px, 11vw, 96px);
+      line-height: .88;
+      letter-spacing: -.075em;
+      margin-bottom: 30px;
+    }
+
+    .world-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 12px;
+      margin-inline: -22px;
+      padding-inline: 22px;
     }
 
     .world {
-      min-height: 410px;
+      flex: 0 0 84%;
+      min-height: 520px;
+      scroll-snap-align: center;
       border-radius: 34px;
       padding: 26px;
+      color: white;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background:
-        linear-gradient(150deg, rgba(255,255,255,.88), rgba(255,255,255,.48)),
-        radial-gradient(circle at 90% 12%, rgba(196,161,106,.28), transparent 34%);
-      border: 1px solid rgba(255,255,255,.82);
-      box-shadow: 0 30px 80px rgba(17,43,70,.08);
       overflow: hidden;
       position: relative;
+      background: var(--blue);
+      box-shadow: 0 32px 90px rgba(14,42,68,.18);
     }
 
-    .world::after {
+    .world::before {
       content: "";
       position: absolute;
-      right: -70px;
-      bottom: -80px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 1px solid rgba(17,43,70,.12);
-    }
-
-    .world small {
-      font-size: 12px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--sand);
-      font-weight: 900;
-    }
-
-    .world h3 {
-      font-size: 38px;
-      letter-spacing: -0.055em;
-      line-height: .95;
-      margin-top: 14px;
-    }
-
-    .world p {
-      margin-top: 16px;
-      font-size: 16px;
-      line-height: 1.4;
-      color: rgba(17,43,70,.72);
-      max-width: 320px;
-    }
-
-    .world a {
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 15px;
-      position: relative;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(199,164,108,.48), transparent 35%),
+        linear-gradient(180deg, rgba(14,42,68,.1), rgba(14,42,68,.92));
       z-index: 1;
     }
 
+    .world > * { position: relative; z-index: 2; }
+
+    .world small {
+      color: var(--sand);
+      font-weight: 950;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .world h3 {
+      margin-top: 14px;
+      font-size: 46px;
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+
+    .world p {
+      margin-top: 18px;
+      font-size: 17px;
+      line-height: 1.35;
+      color: rgba(255,255,255,.78);
+      max-width: 330px;
+    }
+
+    .world a {
+      display: inline-flex;
+      width: fit-content;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.18);
+      font-weight: 850;
+    }
+
     .advisor {
-      background: var(--white);
-      border-radius: 40px 40px 0 0;
+      background: var(--soft);
+      border-radius: 42px 42px 0 0;
     }
 
-    .advisor-grid {
-      display: grid;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .portrait {
-      min-height: 430px;
-      border-radius: 34px;
+    .advisor-card {
+      min-height: 720px;
+      border-radius: 38px;
       background:
-        linear-gradient(180deg, rgba(17,43,70,.04), rgba(17,43,70,.18)),
-        radial-gradient(circle at 60% 10%, rgba(196,161,106,.3), transparent 42%),
-        #E8E0D3;
+        linear-gradient(180deg, rgba(14,42,68,.05), rgba(14,42,68,.5)),
+        radial-gradient(circle at 80% 10%, rgba(199,164,108,.42), transparent 35%),
+        var(--navy);
+      color: white;
+      padding: 28px;
       display: flex;
-      align-items: flex-end;
-      padding: 24px;
-      overflow: hidden;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
-    .portrait-box {
-      width: 100%;
-      border-radius: 24px;
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(18px);
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,.7);
+    .advisor-card h2 {
+      font-size: clamp(42px, 11vw, 86px);
+      line-height: .88;
+      letter-spacing: -.075em;
+      max-width: 760px;
     }
 
-    .portrait-box strong {
-      display: block;
-      font-size: 22px;
-      letter-spacing: -0.03em;
-    }
-
-    .portrait-box span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .statement {
-      font-size: clamp(32px, 8vw, 68px);
-      line-height: .98;
-      letter-spacing: -0.06em;
-    }
-
-    .text {
+    .advisor-card p {
       margin-top: 24px;
-      font-size: 18px;
-      line-height: 1.5;
-      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.35;
+      color: rgba(255,255,255,.75);
       max-width: 620px;
     }
 
-    .questions {
-      background: var(--white);
-    }
-
-    .question-grid {
+    .split {
       display: grid;
       gap: 14px;
+      margin-top: 16px;
     }
 
-    .question {
+    .mini {
+      border-radius: 28px;
+      background: rgba(255,255,255,.72);
       padding: 22px;
-      border-radius: 24px;
-      background: #F7F5F2;
-      border: 1px solid var(--line);
-      font-size: 20px;
-      font-weight: 750;
-      letter-spacing: -0.035em;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: center;
+      min-height: 180px;
     }
 
-    .question span:last-child {
-      color: var(--sand);
+    .mini strong {
       font-size: 24px;
+      letter-spacing: -.045em;
     }
 
-    .bremen {
-      min-height: 72svh;
-      display: flex;
-      align-items: flex-end;
-      background:
-        linear-gradient(180deg, rgba(17,43,70,.1), rgba(17,43,70,.88)),
-        radial-gradient(circle at 20% 20%, rgba(196,161,106,.42), transparent 38%),
-        linear-gradient(135deg, #D8E4EC, #A7B8C8 46%, #173D63);
-      color: white;
-      border-radius: 40px 40px 0 0;
-    }
-
-    .bremen h2 {
-      font-size: clamp(44px, 10vw, 90px);
-      line-height: .92;
-      letter-spacing: -0.065em;
-      max-width: 820px;
-    }
-
-    .bremen p {
-      margin-top: 20px;
-      font-size: 19px;
+    .mini span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
       line-height: 1.4;
-      color: rgba(255,255,255,.78);
-      max-width: 540px;
     }
 
     .contact {
       background: var(--navy);
       color: white;
-      padding-bottom: 110px;
+      min-height: 86svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .contact h2 {
-      font-size: clamp(40px, 10vw, 82px);
-      line-height: .94;
-      letter-spacing: -0.065em;
-      max-width: 760px;
+      font-size: clamp(46px, 13vw, 104px);
+      line-height: .86;
+      letter-spacing: -.08em;
+      max-width: 860px;
     }
 
     .contact p {
-      margin-top: 18px;
+      margin-top: 26px;
       color: rgba(255,255,255,.72);
-      font-size: 18px;
-      line-height: 1.45;
-      max-width: 520px;
+      font-size: 20px;
+      line-height: 1.35;
+      max-width: 560px;
     }
 
-    form {
+    .contact-box {
       margin-top: 32px;
       display: grid;
       gap: 12px;
@@ -427,8 +391,8 @@
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.08);
       color: white;
-      border-radius: 18px;
-      padding: 17px 18px;
+      border-radius: 20px;
+      padding: 18px;
       font: inherit;
       outline: none;
     }
@@ -438,22 +402,22 @@
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 130px;
       resize: vertical;
     }
 
-    .contact .btn {
+    button {
+      border: 0;
+      cursor: pointer;
       background: var(--sand);
       color: var(--navy);
-      cursor: pointer;
-      margin-top: 6px;
     }
 
     footer {
       background: var(--navy);
-      color: rgba(255,255,255,.56);
-      border-top: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.52);
       padding: 26px 22px;
+      border-top: 1px solid rgba(255,255,255,.1);
       font-size: 13px;
       display: flex;
       flex-direction: column;
@@ -461,48 +425,30 @@
     }
 
     footer a {
-      color: rgba(255,255,255,.74);
-      text-decoration: none;
+      color: rgba(255,255,255,.72);
       margin-right: 14px;
     }
 
     @media (min-width: 760px) {
-      .hero {
-        padding: 32px;
-      }
+      .hero, section { padding-left: 44px; padding-right: 44px; }
 
-      nav {
-        display: flex;
-      }
-
-      .cta-row {
+      .actions {
         flex-direction: row;
         max-width: none;
       }
 
-      .btn {
-        min-width: 188px;
-      }
+      .btn { min-width: 190px; }
 
-      .hero-strip {
+      .hero-bottom {
         grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
       }
 
-      section {
-        padding: 110px 44px;
+      .world {
+        flex-basis: 48%;
       }
 
-      .worlds {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .advisor-grid {
-        grid-template-columns: .9fr 1.1fr;
-      }
-
-      .question-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .split {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       footer {
@@ -511,13 +457,13 @@
       }
     }
 
-    @media (min-width: 1120px) {
-      .worlds {
-        grid-template-columns: repeat(3, 1fr);
+    @media (min-width: 1180px) {
+      .world {
+        flex-basis: 32%;
       }
 
-      .world {
-        min-height: 470px;
+      .world-scroll {
+        overflow: visible;
       }
     }
   </style>
@@ -527,174 +473,154 @@
   <main>
     <section class="hero">
       <header>
-        <div class="brand">
-          <div class="mark">HK</div>
+        <div class="logo">
+          <div class="logo-mark">HK</div>
           <span>Hanse-Konzept</span>
         </div>
-        <nav>
-          <span>Gesundheit</span>
-          <span>Tiergesundheit</span>
-          <span>Vorsorge</span>
-          <span>Recht</span>
-          <span>Unternehmen</span>
-        </nav>
+        <a class="menu" href="#kontakt">Anfragen</a>
       </header>
 
-      <div class="hero-content">
-        <div class="eyebrow">Aus Bremen. Persönlich. Langfristig.</div>
-        <h1>Klare Konzepte. Für Entscheidungen, die bleiben.</h1>
-        <p class="lead">
-          Gesundheit, Vorsorge, Recht und Absicherung für Menschen, die Verantwortung tragen.
+      <div class="hero-main">
+        <div class="label">Bremen · Beratung · Struktur</div>
+        <h1>Klarheit für das, was bleibt.</h1>
+        <p class="hero-text">
+          Gesundheit. Tiergesundheit. Vorsorge. Recht. Unternehmen. Immobilien.
+          Nicht als Produktwelt. Als Konzept.
         </p>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#kontakt">Gespräch anfragen</a>
-          <a class="btn btn-secondary" href="#themen">Themen entdecken</a>
+        <div class="actions">
+          <a class="btn primary" href="#kontakt">Gespräch anfragen</a>
+          <a class="btn secondary" href="#welten">Themen ansehen</a>
         </div>
       </div>
 
-      <div class="hero-strip">
-        <div class="strip-card">
-          <strong>Gesundheit</strong>
-          <span>Private Krankenversicherung, Zusatzschutz und Pflege mit Blick auf langfristige Planbarkeit.</span>
+      <div class="hero-bottom">
+        <div class="glass">
+          <strong>Heute</strong>
+          <span>Für ARAG-Kunden schlüssig. Klar in Gesundheit, Recht und Absicherung.</span>
         </div>
-        <div class="strip-card">
-          <strong>Tiergesundheit</strong>
-          <span>Absicherung für Hunde und Katzen als eigenständige Säule moderner Vorsorge.</span>
+        <div class="glass">
+          <strong>Morgen</strong>
+          <span>Vorbereitet für eine stärkere Hanse-Ausrichtung mit Gesundheit und Tier als tragende Säulen.</span>
         </div>
-        <div class="strip-card">
-          <strong>Recht & Werte</strong>
-          <span>Rechtsschutz, Unternehmen und Immobilien strukturiert unter einem Dach.</span>
+        <div class="glass">
+          <strong>Immer</strong>
+          <span>Persönlich aus Bremen. Verständlich. Langfristig gedacht.</span>
         </div>
       </div>
     </section>
 
-    <section id="themen">
-      <div class="section-head">
-        <h2>Sechs Themen. Ein klares Konzept.</h2>
+    <section class="intro">
+      <div>
+        <div class="label">Der Unterschied</div>
+        <h2>Eine gute Entscheidung beginnt nicht mit einem Tarif.</h2>
         <p>
-          Nicht als Produktliste gedacht. Sondern als Orientierung für Entscheidungen, die finanzielle Wirkung über Jahre haben.
+          Sie beginnt mit Einordnung. Was ist wichtig? Was ist teuer, wenn es falsch läuft?
+          Was kann warten — und was nicht?
         </p>
       </div>
+    </section>
 
-      <div class="worlds">
+    <section id="welten" class="worlds">
+      <h2 class="section-title">Die sechs Säulen.</h2>
+
+      <div class="world-scroll">
         <article class="world">
           <div>
-            <small>01</small>
+            <small>01 · Mensch</small>
             <h3>Gesundheit</h3>
-            <p>PKV, Zusatzversicherung und Pflege — verständlich eingeordnet statt schön gerechnet.</p>
+            <p>Private Krankenversicherung, Zusatzschutz und Pflege — mit Blick auf Beitrag, Leistung und Planbarkeit.</p>
           </div>
-          <a href="#">Mehr erfahren →</a>
+          <a href="#">Öffnen →</a>
         </article>
 
         <article class="world">
           <div>
-            <small>02</small>
+            <small>02 · Hund & Katze</small>
             <h3>Tiergesundheit</h3>
-            <p>Hunde und Katzen kosten im Ernstfall schnell vierstellig. Gute Absicherung beginnt vor dem Schaden.</p>
+            <p>Ein Kernbereich der Zukunft. Medizinische Versorgung für Tiere wird hochwertiger — und teurer.</p>
           </div>
-          <a href="#">Mehr erfahren →</a>
+          <a href="#">Öffnen →</a>
         </article>
 
         <article class="world">
           <div>
-            <small>03</small>
+            <small>03 · Zukunft</small>
             <h3>Vorsorge</h3>
-            <p>Betriebliche Altersversorgung, Arbeitskraft und finanzielle Reserven strukturiert planen.</p>
+            <p>Betriebliche Altersversorgung, Arbeitskraft und finanzielle Reserven mit Struktur statt Bauchgefühl.</p>
           </div>
-          <a href="#">Mehr erfahren →</a>
+          <a href="#">Öffnen →</a>
         </article>
 
         <article class="world">
           <div>
-            <small>04</small>
+            <small>04 · Konflikte</small>
             <h3>Recht</h3>
-            <p>Privat, Verkehr, Wohnen und Unternehmen — Rechtsschutz dort, wo Konflikte teuer werden.</p>
+            <p>Privat, Verkehr, Wohnen und Unternehmen — rechtliche Risiken dort absichern, wo Streit teuer wird.</p>
           </div>
-          <a href="#">Mehr erfahren →</a>
+          <a href="#">Öffnen →</a>
         </article>
 
         <article class="world">
           <div>
-            <small>05</small>
+            <small>05 · Betrieb</small>
             <h3>Unternehmen</h3>
-            <p>Haftung, Betrieb, Cyber, Mitarbeiter und Forderungen: Risiken erkennen, bevor sie stören.</p>
+            <p>Haftung, Inhalt, Cyber, Mitarbeiter und Forderungen: Risiken erkennen, bevor sie Liquidität kosten.</p>
           </div>
-          <a href="#">Mehr erfahren →</a>
+          <a href="#">Öffnen →</a>
         </article>
 
         <article class="world">
           <div>
-            <small>06</small>
+            <small>06 · Werte</small>
             <h3>Immobilien</h3>
-            <p>Eigentum, Vermietung und Werte absichern — mit Blick auf Substanz und Liquidität.</p>
+            <p>Eigentum, Vermietung und Kapitalanlage absichern — mit Blick auf Substanz und langfristige Werte.</p>
           </div>
-          <a href="#">Mehr erfahren →</a>
+          <a href="#">Öffnen →</a>
         </article>
       </div>
     </section>
 
     <section class="advisor">
-      <div class="advisor-grid">
-        <div class="portrait">
-          <div class="portrait-box">
-            <strong>Stephan Brinkmann</strong>
-            <span>Beratung aus Bremen — persönlich, strukturiert, langfristig.</span>
-          </div>
-        </div>
-
-        <div>
-          <div class="eyebrow">Wer berät Sie?</div>
-          <div class="statement">
-            Keine Versicherungsseite. Eine Entscheidungsplattform.
-          </div>
-          <p class="text">
-            Hanse-Konzept bündelt Gesundheit, Vorsorge, Recht und Absicherung unter einer klaren Beratungslogik:
-            erst verstehen, dann einordnen, dann entscheiden. Persönlich betreut durch Stephan Brinkmann in Bremen.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="questions">
-      <div class="section-head">
-        <h2>Was beschäftigt Sie aktuell?</h2>
-        <p>Der Einstieg erfolgt nicht über Produkte, sondern über echte Fragen.</p>
-      </div>
-
-      <div class="question-grid">
-        <div class="question"><span>Meine Krankenkasse wird immer teurer.</span><span>→</span></div>
-        <div class="question"><span>Ich möchte meinen Hund oder meine Katze absichern.</span><span>→</span></div>
-        <div class="question"><span>Betriebliche Altersversorgung soll verständlich werden.</span><span>→</span></div>
-        <div class="question"><span>Ich brauche Rechtsschutz für mein Unternehmen.</span><span>→</span></div>
-        <div class="question"><span>Ich vermiete Immobilien und will Risiken reduzieren.</span><span>→</span></div>
-        <div class="question"><span>Ich will wissen, ob meine Absicherung noch passt.</span><span>→</span></div>
-      </div>
-    </section>
-
-    <section class="bremen">
-      <div>
-        <h2>Aus Bremen. Für Menschen, die langfristig denken.</h2>
+      <div class="advisor-card">
+        <div class="label">Persönlich betreut</div>
+        <h2>Beratung aus Bremen. Nicht aus dem Callcenter.</h2>
         <p>
-          Hanse-Konzept steht für klare Beratung, verbindliche Entscheidungen und eine Struktur, die heute funktioniert —
-          und morgen weiterentwickelt werden kann.
+          Hanse-Konzept ist die persönliche Beratungsplattform von Stephan Brinkmann.
+          Für Menschen, die keine Produktshow brauchen, sondern Klarheit.
         </p>
+      </div>
+
+      <div class="split">
+        <div class="mini">
+          <strong>Verstehen</strong>
+          <span>Erst Situation, Ziel und Risiko klären. Ohne Druck. Ohne Tarif-Bingo.</span>
+        </div>
+        <div class="mini">
+          <strong>Einordnen</strong>
+          <span>Was ist relevant? Was ist unnötig? Was hat langfristige Wirkung?</span>
+        </div>
+        <div class="mini">
+          <strong>Entscheiden</strong>
+          <span>Am Ende steht eine klare Empfehlung — oder bewusst keine.</span>
+        </div>
       </div>
     </section>
 
     <section id="kontakt" class="contact">
+      <div class="label">Starten</div>
       <h2>Der erste Schritt dauert zwei Minuten.</h2>
       <p>
-        Kurze Anfrage senden. Danach klären wir, worum es geht und ob ein Gespräch sinnvoll ist.
+        Kurze Anfrage senden. Danach klären wir, ob und wie ein Gespräch sinnvoll ist.
       </p>
 
-      <form>
-        <input type="text" placeholder="Ihr Name" />
-        <input type="tel" placeholder="Telefonnummer" />
-        <input type="email" placeholder="E-Mail-Adresse" />
+      <div class="contact-box">
+        <input type="text" placeholder="Name" />
+        <input type="tel" placeholder="Telefon" />
+        <input type="email" placeholder="E-Mail" />
         <textarea placeholder="Worum geht es?"></textarea>
         <button class="btn" type="button">Rückruf anfragen</button>
-      </form>
+      </div>
     </section>
   </main>
 
