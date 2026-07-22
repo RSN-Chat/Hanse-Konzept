@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gesundheit sinnvoll absichern | Hanse-Konzept</title>
+  <meta name="description" content="Private oder gesetzliche Krankenversicherung, Zusatzschutz und Pflege: Hanse-Konzept betrachtet Leistungen, Beiträge und langfristige Tragfähigkeit im Zusammenhang." />
+  <link rel="canonical" href="https://hanse-konzept.de/gesundheit" />
+  <meta property="og:title" content="Gesundheit sinnvoll absichern | Hanse-Konzept" />
+  <meta property="og:description" content="Private oder gesetzliche Krankenversicherung, Zusatzschutz und Pflege: Hanse-Konzept betrachtet Leistungen, Beiträge und langfristige Tragfähigkeit im Zusammenhang." />
+  <meta property="og:url" content="https://hanse-konzept.de/gesundheit" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://hanse-konzept.de/" },
+        { "@type": "ListItem", "position": 2, "name": "Gesundheit", "item": "https://hanse-konzept.de/gesundheit" }
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --hanse: #005f56;
+      --hanse-dark: #003f39;
+      --hanse-deep: #002e2a;
+      --cream: #f6f1e8;
+      --cream-light: #fbf8f2;
+      --sand: #c8a96a;
+      --ink: #13201f;
+      --muted: #64716e;
+      --white: #fff;
+      --line: rgba(0, 95, 86, .16);
+      --ease: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 3px solid var(--sand); outline-offset: 4px; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 1000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--hanse-deep);
+      color: var(--white);
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      z-index: 100;
+      width: calc(100% - 20px);
+      max-width: 1180px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 7px 8px 7px 10px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 16px;
+      background: rgba(250,247,240,.9);
+      box-shadow: 0 10px 34px rgba(0,63,57,.07);
+      backdrop-filter: blur(16px);
+      transform: translateX(-50%);
+      transition: background .3s ease, box-shadow .3s ease;
+    }
+    .site-header.is-scrolled { background: rgba(250,247,240,.97); box-shadow: 0 10px 28px rgba(0,63,57,.11); }
+    .brand { display: inline-flex; align-items: center; gap: 8px; color: var(--hanse-dark); font-size: 11px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
+    .brand-mark { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(0,95,86,.26); border-radius: 50%; background: rgba(255,255,255,.6); color: var(--hanse); font-size: 15px; letter-spacing: -.04em; }
+    .desktop-nav { display: none; }
+    .header-actions { display: flex; align-items: center; gap: 6px; }
+    .header-cta { min-height: 38px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border-radius: 10px; background: var(--hanse); color: var(--white); font-size: 12px; font-weight: 800; transition: background .2s ease; }
+    .menu-toggle { width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; cursor: pointer; }
+    .menu-icon, .menu-icon::before, .menu-icon::after { width: 17px; height: 1px; display: block; background: var(--hanse-dark); transition: transform .24s var(--ease); }
+    .menu-icon { position: relative; }
+    .menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+    .menu-icon::before { top: -5px; }
+    .menu-icon::after { top: 5px; }
+    .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+    .menu-toggle[aria-expanded="true"] .menu-icon::before { transform: translateY(5px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-icon::after { transform: translateY(-5px) rotate(-45deg); }
+    .mobile-nav { position: fixed; inset: 0; z-index: 90; padding: 94px 24px 32px; background: var(--cream-light); }
+    .mobile-nav[hidden] { display: none; }
+    .mobile-nav ul { max-width: 560px; margin: 0 auto; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .mobile-nav a { min-height: 62px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); color: var(--hanse-dark); font-size: clamp(24px,7vw,34px); font-weight: 700; letter-spacing: -.04em; }
+    .mobile-nav a::after { content: "↘"; color: var(--hanse); font-size: .7em; }
+
+    .scene-inner { width: 100%; max-width: 1060px; margin: 0 auto; }
+    .scene-label { display: inline-flex; align-items: center; gap: 10px; color: var(--hanse); font-size: 11px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    .scene-label::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    .scene-title { max-width: 16ch; margin-top: 18px; color: var(--hanse-dark); font-size: clamp(35px,9.3vw,48px); font-weight: 760; letter-spacing: -.052em; line-height: 1.03; hyphens: auto; overflow-wrap: break-word; }
+    .section-copy { max-width: 48ch; margin-top: 22px; color: var(--muted); font-size: 16px; line-height: 1.62; }
+
+    .health-hero { min-height: 640px; display: flex; align-items: flex-end; padding: 106px 20px 48px; background: var(--cream-light); }
+    .health-hero h1 { max-width: 12.5ch; margin-top: 18px; color: var(--hanse-dark); font-size: clamp(40px,10.7vw,60px); font-weight: 780; letter-spacing: -.058em; line-height: .98; }
+    .hero-intro { max-width: 52ch; margin-top: 22px; color: rgba(19,32,31,.72); font-size: 16px; line-height: 1.6; }
+    .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 24px; }
+    .primary-cta { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 18px; border-radius: 11px; background: var(--hanse); color: var(--white); font-size: 14px; font-weight: 800; transition: background .2s ease; }
+    .editorial-link { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid currentColor; color: var(--hanse); font-size: 14px; font-weight: 800; line-height: 1.35; transition: color .2s ease; }
+
+    .decision-scene, .situation-scene, .areas-scene, .process-scene, .occasions-scene, .personal-scene, .final-scene { padding: 82px 20px; }
+    .decision-scene { background: var(--cream); }
+    .editorial-sequence { margin-top: 44px; border-top: 1px solid var(--line); }
+    .sequence-item { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .sequence-number, .area-number, .process-number { padding-top: 5px; color: var(--hanse); font-size: 10px; font-weight: 850; letter-spacing: .12em; }
+    .sequence-item h3 { color: var(--hanse-dark); font-size: 25px; font-weight: 720; letter-spacing: -.04em; line-height: 1.05; hyphens: auto; overflow-wrap: break-word; }
+    .sequence-item p { max-width: 46ch; margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    .situation-scene { background: var(--hanse-deep); color: var(--white); }
+    .situation-scene .scene-label { color: var(--sand); }
+    .situation-scene .scene-title { color: var(--white); }
+    .situation-tabs { margin-top: 44px; border-top: 1px solid rgba(255,255,255,.16); }
+    .situation-tab { width: 100%; min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.16); background: transparent; color: rgba(255,255,255,.62); text-align: left; font-size: clamp(21px,6vw,28px); font-weight: 700; letter-spacing: -.035em; cursor: pointer; }
+    .situation-tab::after { content: "+"; color: var(--sand); font-size: 20px; font-weight: 400; }
+    .situation-tab[aria-expanded="true"] { color: var(--white); }
+    .situation-tab[aria-expanded="true"]::after { content: "−"; }
+    .situation-panel { padding: 20px 0 28px; color: rgba(255,255,255,.68); font-size: 15px; line-height: 1.62; }
+    .situation-panel[hidden] { display: none; }
+    .situation-panel p { max-width: 52ch; }
+
+    .areas-scene { background: var(--cream-light); }
+    .areas-list { margin-top: 48px; border-top: 1px solid var(--line); }
+    .area { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 34px 0 40px; border-bottom: 1px solid var(--line); }
+    .area h3 { max-width: 16ch; color: var(--hanse-dark); font-size: clamp(29px,8vw,44px); font-weight: 735; letter-spacing: -.048em; line-height: 1; hyphens: auto; overflow-wrap: break-word; }
+    .area-copy { max-width: 49ch; margin-top: 18px; color: var(--muted); font-size: 15px; line-height: 1.62; }
+    .area-context { max-width: 54ch; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--hanse-dark); font-size: 13px; line-height: 1.55; }
+    .topic-status { min-height: 44px; display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 3px; margin-top: 20px; color: var(--hanse); font-size: 14px; font-weight: 800; }
+    .topic-status small { color: var(--muted); font-size: 10px; font-weight: 720; letter-spacing: .08em; text-transform: uppercase; }
+
+    .process-scene { background: var(--cream); }
+    .process-list { margin-top: 44px; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .process-list li { position: relative; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .process-list h3 { color: var(--hanse-dark); font-size: 19px; font-weight: 700; letter-spacing: -.025em; line-height: 1.25; hyphens: auto; overflow-wrap: break-word; }
+    .process-note { max-width: 54ch; margin-top: 30px; color: var(--hanse-dark); font-size: 16px; line-height: 1.58; }
+
+    .occasions-scene { background: var(--cream-light); }
+    .occasion-list { margin-top: 40px; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .occasion-list li { padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--hanse-dark); font-size: 16px; font-weight: 640; line-height: 1.35; }
+    .occasion-note { max-width: 52ch; margin-top: 30px; color: var(--muted); font-size: 15px; line-height: 1.62; }
+
+    .personal-scene { background: var(--hanse-deep); color: var(--white); }
+    .personal-scene .scene-label { color: var(--sand); }
+    .personal-scene .scene-title { color: var(--white); }
+    .personal-image { margin: 44px -20px 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--hanse-dark); }
+    .personal-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+    .personal-content { padding-top: 42px; }
+    .personal-copy { max-width: 48ch; margin-top: 24px; color: rgba(255,255,255,.68); font-size: 16px; line-height: 1.62; }
+    .personal-points { margin-top: 30px; border-top: 1px solid rgba(255,255,255,.16); }
+    .personal-points p { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.84); font-size: 14px; font-weight: 650; }
+
+    .final-scene { background: var(--sand); }
+    .final-scene .scene-label { color: var(--hanse-deep); }
+    .final-scene .scene-title { max-width: 17ch; color: var(--hanse-deep); }
+    .final-copy { max-width: 48ch; margin-top: 24px; color: rgba(0,46,42,.72); font-size: 16px; line-height: 1.62; }
+    .final-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 30px; }
+    .final-scene .primary-cta { background: var(--hanse-deep); }
+    .final-scene .editorial-link { color: var(--hanse-deep); }
+
+    .site-footer { padding: 28px 20px 34px; background: var(--hanse-deep); color: rgba(255,255,255,.5); font-size: 12px; }
+    .footer-inner { width: 100%; max-width: 1180px; margin: 0 auto; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-direction: column; gap: 14px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    .footer-links a { min-height: 32px; display: inline-flex; align-items: center; color: rgba(255,255,255,.72); }
+
+    @media (hover: hover) {
+      .header-cta:hover, .primary-cta:hover { background: var(--hanse-dark); }
+      .editorial-link:hover { color: var(--hanse-dark); }
+      .situation-tab:hover { color: var(--white); }
+      .final-scene .primary-cta:hover { background: var(--hanse); }
+    }
+
+    @media (min-width: 700px) {
+      .health-hero { min-height: 720px; padding: 132px 44px 76px; }
+      .health-hero h1 { max-width: 15ch; font-size: clamp(62px,8vw,86px); }
+      .hero-intro, .section-copy, .personal-copy, .final-copy { font-size: 17px; }
+      .hero-actions, .final-actions { flex-direction: row; align-items: center; gap: 24px; }
+      .decision-scene, .situation-scene, .areas-scene, .process-scene, .occasions-scene, .personal-scene, .final-scene { padding: 112px 44px; }
+      .scene-title { font-size: clamp(48px,5.7vw,68px); }
+      .sequence-item { grid-template-columns: 48px 1fr; padding: 28px 0; }
+      .sequence-item h3 { font-size: 30px; }
+      .sequence-item p, .area-copy { font-size: 16px; }
+      .area { grid-template-columns: 52px 1fr; padding: 48px 0 54px; }
+      .process-list li { grid-template-columns: 48px 1fr; padding: 25px 0; }
+      .occasion-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; border-top: 0; }
+      .occasion-list li:nth-child(-n+2) { border-top: 1px solid var(--line); }
+      .personal-image { margin-inline: 0; }
+      .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+
+    @media (min-width: 900px) {
+      .site-header { padding-inline: 12px; }
+      .desktop-nav { display: flex; align-items: center; gap: 24px; }
+      .desktop-nav a { color: var(--hanse-dark); font-size: 12px; font-weight: 720; }
+      .desktop-nav a:hover { color: var(--hanse); }
+      .desktop-nav a[aria-current="page"] { color: var(--hanse); }
+      .menu-toggle { display: none; }
+      .mobile-nav { display: none !important; }
+      .header-cta { min-height: 40px; padding-inline: 15px; }
+      .decision-layout, .situation-layout, .process-layout, .occasions-layout { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: 96px; align-items: start; }
+      .editorial-sequence, .situation-tabs, .process-list, .occasion-list { margin-top: 0; }
+      .areas-list { margin-top: 66px; }
+      .area:nth-child(even) > div:last-child { padding-left: 12%; }
+      .personal-layout { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: 8vw; align-items: center; }
+      .personal-image { margin: 0; aspect-ratio: 4 / 5; }
+      .personal-content { padding-top: 0; }
+    }
+
+    @media (min-width: 1200px) {
+      .health-hero { min-height: 760px; }
+      .process-list { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); }
+      .process-list li { display: block; min-height: 190px; padding: 25px 22px 25px 0; border-right: 1px solid var(--line); }
+      .process-list li + li { padding-left: 22px; }
+      .process-list li:last-child { border-right: 0; }
+      .process-list h3 { margin-top: 38px; font-size: 17px; }
+      .process-layout { display: block; }
+      .process-list { margin-top: 54px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Hanse-Konzept – zur Startseite">
+      <span class="brand-mark" aria-hidden="true">HK</span><span>Hanse-Konzept</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Hauptnavigation">
+      <a href="/#haltung">Haltung</a><a href="/#arbeitsweise">Arbeitsweise</a><a href="/#themen" aria-current="page">Themen</a><a href="/#beratung">Beratung</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-cta" href="/#kontakt">Termin</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Navigation öffnen"><span class="menu-icon" aria-hidden="true"></span></button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" hidden>
+    <ul><li><a href="/#haltung">Haltung</a></li><li><a href="/#arbeitsweise">Arbeitsweise</a></li><li><a href="/#themen">Themen</a></li><li><a href="/#beratung">Beratung</a></li><li><a href="/#kontakt">Termin</a></li></ul>
+  </nav>
+
+  <main id="main">
+    <section class="health-hero" aria-labelledby="health-title">
+      <div class="scene-inner">
+        <span class="scene-label">Gesundheit</span>
+        <h1 id="health-title">Gesundheit lässt sich nicht planen.<br />Die richtigen Entscheidungen schon.</h1>
+        <p class="hero-intro">Krankenversicherung, Zusatzschutz und Pflege betreffen nicht nur den heutigen Beitrag. Entscheidend ist, welche Leistungen zu Ihrer Lebenssituation passen, welche Veränderungen absehbar sind und welche Lösung langfristig tragfähig bleibt.</p>
+        <div class="hero-actions"><a class="primary-cta" href="/#kontakt">Gespräch vereinbaren <span aria-hidden="true">↘</span></a><a class="editorial-link" href="#gesundheitsbereiche">Gesundheitsbereiche ansehen <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+
+    <section class="decision-scene" aria-labelledby="decision-title">
+      <div class="scene-inner decision-layout">
+        <div><span class="scene-label">Worauf es ankommt</span><h2 class="scene-title" id="decision-title">Eine gute Entscheidung betrachtet mehr als den heutigen Beitrag.</h2></div>
+        <div class="editorial-sequence">
+          <article class="sequence-item"><span class="sequence-number">01</span><div><h3>Leistung</h3><p>Welche Behandlungen, Ärzte und Versorgungswege sollen Ihnen tatsächlich offenstehen?</p></div></article>
+          <article class="sequence-item"><span class="sequence-number">02</span><div><h3>Beitrag</h3><p>Was ist heute bezahlbar – und unter welchen Voraussetzungen bleibt es langfristig tragfähig?</p></div></article>
+          <article class="sequence-item"><span class="sequence-number">03</span><div><h3>Lebenssituation</h3><p>Angestellt, selbstständig, verbeamtet oder im Ruhestand: Die Ausgangslage verändert die Möglichkeiten.</p></div></article>
+          <article class="sequence-item"><span class="sequence-number">04</span><div><h3>Entwicklung</h3><p>Familie, Einkommen, Beruf und Gesundheit bleiben nicht immer gleich. Eine Entscheidung sollte Veränderungen mitdenken.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="situation-scene" aria-labelledby="situation-title">
+      <div class="scene-inner situation-layout">
+        <div><span class="scene-label">Ihre Ausgangslage</span><h2 class="scene-title" id="situation-title">Die passende Lösung beginnt mit Ihrer persönlichen Situation.</h2></div>
+        <div class="situation-tabs">
+          <button class="situation-tab" id="tab-employed" type="button" aria-expanded="true" aria-controls="panel-employed">Angestellt</button>
+          <div class="situation-panel" id="panel-employed" role="region" aria-labelledby="tab-employed"><p>Mit steigendem Einkommen entsteht häufig die Wahl zwischen gesetzlicher und privater Krankenversicherung. Dabei zählen nicht nur der aktuelle Beitrag, sondern auch Familienplanung, Leistungen, Arbeitgeberzuschuss und die langfristige Entwicklung.</p></div>
+          <button class="situation-tab" id="tab-self" type="button" aria-expanded="true" aria-controls="panel-self">Selbstständig</button>
+          <div class="situation-panel" id="panel-self" role="region" aria-labelledby="tab-self"><p>Selbstständige tragen ihren Krankenversicherungsbeitrag weitgehend selbst. Deshalb müssen Leistungsumfang, Einkommensentwicklung, Rücklagen und langfristige Beitragsbelastung gemeinsam betrachtet werden.</p></div>
+          <button class="situation-tab" id="tab-civil" type="button" aria-expanded="true" aria-controls="panel-civil">Verbeamtet</button>
+          <div class="situation-panel" id="panel-civil" role="region" aria-labelledby="tab-civil"><p>Für Beamte gelten durch Beihilfe und ergänzende Absicherung eigene Voraussetzungen. Entscheidend sind Beihilfesatz, Dienstherr, Familienkonstellation und der passende Leistungsumfang.</p></div>
+          <button class="situation-tab" id="tab-family" type="button" aria-expanded="true" aria-controls="panel-family">Familie und Kinder</button>
+          <div class="situation-panel" id="panel-family" role="region" aria-labelledby="tab-family"><p>Geburt, Elternzeit, Familienversicherung und die Absicherung von Kindern können bestehende Entscheidungen verändern. Diese Fragen sollten frühzeitig gemeinsam betrachtet werden.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-scene" id="gesundheitsbereiche" aria-labelledby="areas-title">
+      <div class="scene-inner"><span class="scene-label">Gesundheitsbereiche</span><h2 class="scene-title" id="areas-title">Vier Bereiche. Unterschiedliche Aufgaben.</h2>
+        <div class="areas-list">
+          <article class="area"><span class="area-number">01</span><div><h3>Private Krankenversicherung</h3><p class="area-copy">Die private Krankenversicherung ermöglicht eine individuelle Auswahl von Leistungen. Gleichzeitig ist sie eine langfristige Entscheidung, bei der Berufsweg, Einkommen, Familie, Gesundheit und Beitragsentwicklung zusammen betrachtet werden müssen.</p><p class="area-context">Relevant für Angestellte oberhalb der Versicherungspflichtgrenze, Selbstständige und beihilfeberechtigte Personen.</p><span class="topic-status"><span>Private Krankenversicherung verstehen →</span><small>Seite in Vorbereitung</small></span></div></article>
+          <article class="area"><span class="area-number">02</span><div><h3>Gesetzliche Krankenversicherung</h3><p class="area-copy">Die gesetzliche Krankenversicherung bietet einen einheitlich geregelten Kernschutz. Unterschiede entstehen unter anderem bei Zusatzbeitrag, Service, Satzungsleistungen und freiwilligen Zusatzangeboten.</p><p class="area-context">Relevant für Pflichtversicherte, freiwillig Versicherte und Familien mit beitragsfreier Familienversicherung.</p><span class="topic-status"><span>Gesetzliche Krankenversicherung verstehen →</span><small>Seite in Vorbereitung</small></span></div></article>
+          <article class="area"><span class="area-number">03</span><div><h3>Krankenzusatzversicherung</h3><p class="area-copy">Zusatzversicherungen können gezielt Bereiche ergänzen, die in der bestehenden Absicherung nicht oder nur teilweise enthalten sind. Entscheidend ist, welche Leistung tatsächlich wichtig ist und welche bereits anderweitig besteht.</p><p class="area-context">Dazu können beispielsweise Zahnbehandlung, Krankenhaus, ambulante Leistungen oder Krankentagegeld gehören.</p><span class="topic-status"><span>Zusatzschutz verstehen →</span><small>Seite in Vorbereitung</small></span></div></article>
+          <article class="area"><span class="area-number">04</span><div><h3>Pflegeabsicherung</h3><p class="area-copy">Pflegebedürftigkeit betrifft nicht nur die versicherte Person. Sie kann auch finanzielle und organisatorische Folgen für die Familie haben. Eine zusätzliche Absicherung soll eine konkret erkennbare Lücke sinnvoll reduzieren.</p><p class="area-context">Relevant sind unter anderem gewünschte Versorgung, vorhandenes Vermögen, familiäre Unterstützung und laufende Verpflichtungen.</p><span class="topic-status"><span>Pflegeabsicherung verstehen →</span><small>Seite in Vorbereitung</small></span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-scene" aria-labelledby="process-title"><div class="scene-inner process-layout"><div><span class="scene-label">Beratung</span><h2 class="scene-title" id="process-title">Nicht jede Möglichkeit ist für jede Situation sinnvoll.</h2><p class="section-copy">Bevor eine Empfehlung entsteht, betrachten wir die Faktoren, die für die Entscheidung tatsächlich relevant sind.</p></div><div><ol class="process-list"><li><span class="process-number">01</span><h3>Ausgangslage klären</h3></li><li><span class="process-number">02</span><h3>Leistungsbedarf bestimmen</h3></li><li><span class="process-number">03</span><h3>Beiträge und langfristige Tragfähigkeit betrachten</h3></li><li><span class="process-number">04</span><h3>Möglichkeiten und Konsequenzen vergleichen</h3></li><li><span class="process-number">05</span><h3>Entscheidung dokumentieren und später erneut prüfen</h3></li></ol><p class="process-note">Das Ergebnis muss nicht immer ein Wechsel oder ein neuer Vertrag sein. Auch das bewusste Beibehalten einer bestehenden Lösung kann sinnvoll sein.</p></div></div></section>
+
+    <section class="occasions-scene" aria-labelledby="occasions-title"><div class="scene-inner occasions-layout"><div><span class="scene-label">Anlässe</span><h2 class="scene-title" id="occasions-title">Gesundheitsentscheidungen verändern sich mit dem Leben.</h2></div><div><ul class="occasion-list"><li>Wechsel in die Selbstständigkeit</li><li>Überschreiten der Versicherungspflichtgrenze</li><li>Verbeamtung</li><li>Heirat oder Familiengründung</li><li>Geburt eines Kindes</li><li>Arbeitgeberwechsel</li><li>Veränderung des Einkommens</li><li>Annäherung an den Ruhestand</li><li>Unzufriedenheit mit bestehenden Leistungen</li><li>Wunsch nach zusätzlichem Schutz</li></ul><p class="occasion-note">Nicht jeder Anlass erfordert eine neue Absicherung. Er ist aber ein sinnvoller Zeitpunkt, die bestehende Entscheidung erneut zu betrachten.</p></div></div></section>
+
+    <section class="personal-scene" aria-labelledby="personal-title"><div class="scene-inner personal-layout"><div class="personal-image"><img src="../assets/stephan.jpg" alt="Stephan Brinkmann, persönlicher Ansprechpartner bei Hanse-Konzept" width="1023" height="1537" loading="lazy" /></div><div class="personal-content"><span class="scene-label">Persönliche Beratung</span><h2 class="scene-title" id="personal-title">Gesundheitsentscheidungen brauchen einen festen Ansprechpartner.</h2><p class="personal-copy">Wir betrachten Ihre Ausgangslage, erklären die entscheidenden Unterschiede und halten fest, welche Lösung aus welchem Grund gewählt wurde. Wenn sich Ihre Situation später verändert, greifen wir diese Grundlage wieder auf.</p><div class="personal-points" aria-label="Merkmale der Beratung"><p>Persönliche Begleitung</p><p>Verständliche Entscheidungsgrundlage</p><p>Erreichbarer Ansprechpartner</p></div></div></div></section>
+
+    <section class="final-scene" aria-labelledby="final-title"><div class="scene-inner"><span class="scene-label">Nächster Schritt</span><h2 class="scene-title" id="final-title">Klären wir, was für Ihre Gesundheit heute wirklich relevant ist.</h2><p class="final-copy">Im ersten Gespräch betrachten wir Ihre Situation und legen fest, welche Fragen zuerst beantwortet werden sollten.</p><div class="final-actions"><a class="primary-cta" href="/#kontakt">Gespräch vereinbaren <span aria-hidden="true">↘</span></a><a class="editorial-link" href="/">Zurück zur Übersicht <span aria-hidden="true">→</span></a></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><div>© 2026 Hanse-Konzept · Bremen</div><div class="footer-links"><a href="/#">Impressum</a><a href="/#">Datenschutz</a><a href="#main">Nach oben ↑</a></div></div></footer>
+
+  <script>
+    document.documentElement.classList.add("js");
+    const header = document.querySelector(".site-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const mobileLinks = [...mobileNav.querySelectorAll("a")];
+    const setMenu = open => {
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Navigation schließen" : "Navigation öffnen");
+      mobileNav.hidden = !open;
+      document.body.classList.toggle("menu-open", open);
+      if (open) mobileLinks[0].focus();
+    };
+    menuToggle.addEventListener("click", () => setMenu(menuToggle.getAttribute("aria-expanded") !== "true"));
+    mobileLinks.forEach(link => link.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") { setMenu(false); menuToggle.focus(); } });
+    window.addEventListener("scroll", () => header.classList.toggle("is-scrolled", window.scrollY > 20), { passive: true });
+
+    const situationTabs = [...document.querySelectorAll(".situation-tab")];
+    const selectSituation = selected => {
+      situationTabs.forEach(tab => {
+        const active = tab === selected;
+        tab.setAttribute("aria-expanded", String(active));
+        document.getElementById(tab.getAttribute("aria-controls")).hidden = !active;
+      });
+    };
+    situationTabs.forEach(tab => tab.addEventListener("click", () => selectSituation(tab)));
+    selectSituation(situationTabs[0]);
+  </script>
+</body>
+</html>

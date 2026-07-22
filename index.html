@@ -573,6 +573,16 @@
       letter-spacing: .04em;
     }
 
+    .field-link {
+      cursor: pointer;
+    }
+
+    .js .field-link,
+    .js .field-link.is-active {
+      opacity: 1;
+      transform: none;
+    }
+
     .advisor-scene {
       background: var(--cream);
     }
@@ -829,6 +839,7 @@
       .editorial-link:hover { color: var(--hanse-dark); }
       .method-link:hover { color: var(--white); }
       .form-submit:hover { background: var(--cream); }
+      .field-link:hover h3 { color: var(--hanse); }
     }
 
     @media (min-width: 700px) {
@@ -1019,10 +1030,10 @@
         </div>
 
         <div class="fields-list">
-          <article class="field">
+          <a class="field field-link" href="/gesundheit" aria-label="Gesundheit: Krankenversicherung, Zusatzschutz und Pflege">
             <span class="field-index">01</span>
             <div><h3>Gesundheit</h3><p>Krankenversicherung, Zusatzschutz und Pflege – eingeordnet nach Leistung, Beitrag und langfristiger Tragfähigkeit.</p><div class="field-topics">PKV · GKV · Zusatzschutz · Pflege</div></div>
-          </article>
+          </a>
           <article class="field">
             <span class="field-index">02</span>
             <div><h3>Tiergesundheit</h3><p>Damit medizinische Entscheidungen für Hund oder Katze nicht zuerst eine finanzielle Entscheidung werden.</p><div class="field-topics">Hund · Katze · OP-Schutz · Vollschutz</div></div>
