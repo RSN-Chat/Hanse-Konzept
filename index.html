@@ -400,11 +400,8 @@
       letter-spacing: -.02em;
       line-height: 1.25;
       opacity: 1;
-      transition: color .35s ease, opacity .35s ease, transform .35s var(--ease);
+      transform: none;
     }
-
-    .js .life-sequence p { color: var(--muted); opacity: .48; transform: translateY(5px); }
-    .js .life-sequence p.is-active { color: var(--hanse-dark); opacity: 1; transform: translateY(0); }
 
     .change-copy {
       max-width: 40ch;
@@ -435,6 +432,11 @@
 
     .editorial-link span:last-child { flex: 0 0 auto; transition: transform .2s var(--ease); }
     .editorial-link:active { transform: translateY(1px); }
+
+    .change-scene .editorial-link:active {
+      opacity: .72;
+      transform: none;
+    }
 
     .method-scene {
       position: relative;
@@ -866,6 +868,12 @@
       .hero { min-height: 800px; }
       .change-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 90px; align-items: start; }
       .change-copy-column { padding-top: 8px; }
+      .js .life-sequence p {
+        color: var(--muted);
+        opacity: .48;
+        transition: color .35s ease, opacity .35s ease;
+      }
+      .js .life-sequence p.is-active { color: var(--hanse-dark); opacity: 1; }
       .method-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; align-items: start; }
       .method-heading { position: sticky; top: 120px; }
       .method-flow { margin-top: 0; }
@@ -953,7 +961,7 @@
 
     <section class="change-scene" id="haltung" aria-labelledby="change-title">
       <div class="scene-inner change-layout">
-        <div data-reveal>
+        <div>
           <span class="scene-label">Was sich verändert</span>
           <h2 class="scene-title" id="change-title">Die wichtigen Dinge verändern sich.</h2>
         </div>
@@ -965,7 +973,7 @@
             <p>Unternehmen verändern sich.</p>
             <p>Neue Verantwortung entsteht.</p>
           </div>
-          <div class="change-copy" data-reveal>
+          <div class="change-copy">
             <p>Deshalb sollte auch Ihre Absicherung regelmäßig mitgedacht werden.</p>
             <p>Gemeinsam betrachten wir, was heute zu Ihrer Situation passt – und sorgen dafür, dass es auch morgen noch sinnvoll geregelt ist.</p>
           </div>
@@ -1160,7 +1168,9 @@
       items.forEach(item => observer.observe(item));
     };
 
-    activateWithin(".life-sequence p");
+    if (window.matchMedia("(min-width: 900px)").matches) {
+      activateWithin(".life-sequence p");
+    }
     activateWithin(".field");
 
     let previousScrollY = window.scrollY;
