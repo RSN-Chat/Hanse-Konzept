@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0b3035" />
   <meta name="description" content="Hanse-Konzept schafft Klarheit für Absicherung, Vorsorge, Unternehmen und Immobilien – persönlich begleitet aus Bremen." />
   <title>Hanse-Konzept | Klarheit vor Entscheidungen</title>
 
@@ -917,6 +923,10 @@
         transform: none !important;
       }
     }
+    .site-logo { display:block; flex:0 1 auto; min-width:0; max-width:min(52vw,215px); }
+    .site-logo picture, .site-logo img { display:block; }
+    .site-logo img { width:auto; height:26px; max-width:100%; object-fit:contain; }
+    @media (min-width:900px) { .site-logo { max-width:280px; } .site-logo img { height:32px; } }
   </style>
 </head>
 
@@ -924,9 +934,11 @@
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Hanse-Konzept – zum Seitenanfang">
-      <span class="brand-mark" aria-hidden="true">HK</span>
-      <span>Hanse-Konzept</span>
+    <a href="/" class="site-logo" aria-label="Hanse-Konzept – Startseite">
+      <picture>
+        <source srcset="/assets/brand/hanse-konzept-logo.webp" type="image/webp" />
+        <img src="/assets/brand/hanse-konzept-logo.png" alt="Hanse-Konzept" width="1200" height="156" />
+      </picture>
     </a>
 
     <nav class="desktop-nav" aria-label="Hauptnavigation">
