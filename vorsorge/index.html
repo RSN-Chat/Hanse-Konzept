@@ -458,6 +458,18 @@
     .content-swap { transition: opacity .18s ease; }
     .content-swap.is-changing { opacity: 0; }
 
+    .reform-feature { padding: 92px 20px 104px; background: var(--light); overflow: hidden; }
+    .reform-feature-grid { display: grid; gap: 44px; }
+    .reform-year { color: rgba(0,95,86,.12); font-size: clamp(92px,28vw,180px); font-weight: 820; letter-spacing: -.09em; line-height: .72; }
+    .reform-feature .title { max-width: 16ch; }
+    .reform-highlight { max-width: 40ch; margin-top: 24px; color: var(--dark); font-size: 16px; font-weight: 720; line-height: 1.5; }
+    .funding-lines { min-height: 120px; margin-top: 32px; position: relative; }
+    .funding-lines i { position: absolute; left: 0; height: 1px; background: var(--hanse); transform-origin: left; transition: transform .9s var(--ease); }
+    .funding-lines i:first-child { top: 36px; width: 74%; transform: scaleX(.7); }
+    .funding-lines i:last-child { top: 76px; width: 96%; transform: scaleX(.42); background: var(--sand); }
+    .reform-feature:hover .funding-lines i { transform: scaleX(1); }
+    .reform-link { min-height: 48px; display: inline-flex; align-items: center; gap: 9px; margin-top: 8px; border-bottom: 1px solid currentColor; color: var(--hanse); font-size: 14px; font-weight: 800; }
+
     .order-scene { padding: 92px 20px 106px; background: var(--cream); }
     .emphasis {
       max-width: 28ch;
@@ -703,7 +715,7 @@
     @media (min-width:700px) {
       .breadcrumb { padding-inline: 44px; }
       .hero, .response-scene, .order-scene, .experiment-scene, .priorities-scene,
-      .conversation-scene, .method-scene, .closing-scene { padding-left: 44px; padding-right: 44px; }
+      .conversation-scene, .method-scene, .closing-scene, .reform-feature { padding-left: 44px; padding-right: 44px; }
       .hero { padding-top: 156px; padding-bottom: 120px; }
       .closing-scene::before { left: 44px; }
       .hero h1 { max-width: 13ch; font-size: clamp(64px,8vw,88px); }
@@ -738,6 +750,7 @@
         gap: 100px;
         align-items: start;
       }
+      .reform-feature-grid { grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: 95px; align-items:start; }
       .response-content, .experiment-content, .conversation-content, .method-content { margin-top: 4px; }
       .question-list, .duration-options, .conversation-content .chapter-list, .method-list { margin-top: 0; }
       .order-intro { display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr); gap: 100px; align-items: end; }
@@ -749,7 +762,7 @@
       .method-point p { margin-left: 15%; }
       .closing-content { max-width: 850px; margin-left: auto; }
       .response-scene, .order-scene, .experiment-scene, .priorities-scene,
-      .conversation-scene, .method-scene, .closing-scene { padding-top: 132px; padding-bottom: 146px; }
+      .conversation-scene, .method-scene, .closing-scene, .reform-feature { padding-top: 132px; padding-bottom: 146px; }
       .js .content-swap { transition: opacity .18s ease; }
     }
 
@@ -758,6 +771,7 @@
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
       .order-line::after { transform: scaleY(1) !important; }
       .life-scene { opacity: 1; transform: none; }
+      .funding-lines i { transform: scaleX(1); }
     }
   </style>
 </head>
@@ -864,6 +878,22 @@
           <div class="question"><p>Was finanziert mein heutiges Leben?</p></div>
           <div class="question"><p>Wer oder was hängt von meinem Einkommen ab?</p></div>
           <div class="question"><p>Welche Entscheidung lässt sich später nur schwer korrigieren?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reform-feature" aria-labelledby="reform-feature-title">
+      <div class="inner reform-feature-grid">
+        <div>
+          <span class="eyebrow">Altersvorsorge ab 2027</span>
+          <p class="reform-year" aria-hidden="true">2027</p>
+          <div class="funding-lines" aria-hidden="true"><i></i><i></i></div>
+        </div>
+        <div>
+          <h2 class="title" id="reform-feature-title">Riester behalten – oder ins Altersvorsorgedepot wechseln?</h2>
+          <p class="copy">Bestehende Riester-Verträge laufen weiter. Gleichzeitig ändern sich Förderung, Kapitalanlage und Wechselmöglichkeiten. Unser Vergleich zeigt, was sich ändert – und was für Ihren Vertrag wirklich geprüft werden muss.</p>
+          <p class="reform-highlight">Mit Fördervergleichsrechner für alle Riester-Sparer.</p>
+          <a class="reform-link" href="/vorsorge/riester-oder-altersvorsorgedepot/">Riester und Altersvorsorgedepot vergleichen <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
