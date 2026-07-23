@@ -22,16 +22,16 @@
   </script>
   <style>
     :root {
-      --hanse: #005f56;
-      --hanse-dark: #003f39;
-      --hanse-deep: #002e2a;
-      --cream: #f6f1e8;
-      --cream-light: #fbf8f2;
-      --sand: #c8a96a;
-      --ink: #13201f;
-      --muted: #64716e;
+      --hanse: #6b5f54;
+      --hanse-dark: #2c2925;
+      --hanse-deep: #1c1a18;
+      --cream: #f3efe7;
+      --cream-light: #faf8f3;
+      --sand: #cbbda8;
+      --ink: #292622;
+      --muted: #6b665f;
       --white: #fff;
-      --line: rgba(0, 95, 86, .16);
+      --line: rgba(107,95,84, .16);
       --ease: cubic-bezier(.2, .8, .2, 1);
     }
 
@@ -51,7 +51,7 @@
     a { color: inherit; text-decoration: none; }
     button { color: inherit; font: inherit; }
     img { display: block; max-width: 100%; }
-    :focus-visible { outline: 3px solid var(--sand); outline-offset: 4px; }
+    :focus-visible { outline:3px solid var(--hanse); outline-offset: 4px; }
 
     .skip-link {
       position: fixed;
@@ -80,15 +80,15 @@
       padding: 7px 8px 7px 10px;
       border: 1px solid rgba(255,255,255,.72);
       border-radius: 16px;
-      background: rgba(250,247,240,.9);
-      box-shadow: 0 10px 34px rgba(0,63,57,.07);
+      background: rgba(250,248,243,.9);
+      box-shadow: 0 10px 34px rgba(44,41,37,.07);
       backdrop-filter: blur(16px);
       transform: translateX(-50%);
       transition: background .3s ease, box-shadow .3s ease;
     }
-    .site-header.is-scrolled { background: rgba(250,247,240,.97); box-shadow: 0 10px 28px rgba(0,63,57,.11); }
+    .site-header.is-scrolled { background: rgba(250,248,243,.97); box-shadow: 0 10px 28px rgba(44,41,37,.11); }
     .brand { display: inline-flex; align-items: center; gap: 8px; color: var(--hanse-dark); font-size: 11px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
-    .brand-mark { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(0,95,86,.26); border-radius: 50%; background: rgba(255,255,255,.6); color: var(--hanse); font-size: 15px; letter-spacing: -.04em; }
+    .brand-mark { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(107,95,84,.26); border-radius: 50%; background: rgba(255,255,255,.6); color: var(--hanse); font-size: 15px; letter-spacing: -.04em; }
     .desktop-nav { display: none; }
     .header-actions { display: flex; align-items: center; gap: 6px; }
     .header-cta { min-height: 38px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border-radius: 10px; background: var(--hanse); color: var(--white); font-size: 12px; font-weight: 800; transition: background .2s ease; }
@@ -115,7 +115,7 @@
 
     .health-hero { min-height: 640px; display: flex; align-items: flex-end; padding: 106px 20px 48px; background: var(--cream-light); }
     .health-hero h1 { max-width: 12.5ch; margin-top: 18px; color: var(--hanse-dark); font-size: clamp(40px,10.7vw,60px); font-weight: 780; letter-spacing: -.058em; line-height: .98; }
-    .hero-intro { max-width: 52ch; margin-top: 22px; color: rgba(19,32,31,.72); font-size: 16px; line-height: 1.6; }
+    .hero-intro { max-width: 52ch; margin-top: 22px; color: rgba(41,38,34,.72); font-size: 16px; line-height: 1.6; }
     .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 24px; }
     .primary-cta { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 18px; border-radius: 11px; background: var(--hanse); color: var(--white); font-size: 14px; font-weight: 800; transition: background .2s ease; }
     .editorial-link { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid currentColor; color: var(--hanse); font-size: 14px; font-weight: 800; line-height: 1.35; transition: color .2s ease; }
@@ -173,7 +173,7 @@
     .final-scene { background: var(--sand); }
     .final-scene .scene-label { color: var(--hanse-deep); }
     .final-scene .scene-title { max-width: 17ch; color: var(--hanse-deep); }
-    .final-copy { max-width: 48ch; margin-top: 24px; color: rgba(0,46,42,.72); font-size: 16px; line-height: 1.62; }
+    .final-copy { max-width: 48ch; margin-top: 24px; color: rgba(28,26,24,.72); font-size: 16px; line-height: 1.62; }
     .final-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 30px; }
     .final-scene .primary-cta { background: var(--hanse-deep); }
     .final-scene .editorial-link { color: var(--hanse-deep); }
@@ -305,7 +305,7 @@
           <article class="area"><span class="area-number">01</span><div><h3>Private Krankenversicherung</h3><p class="area-copy">Die private Krankenversicherung ermöglicht eine individuelle Auswahl von Leistungen. Gleichzeitig ist sie eine langfristige Entscheidung, bei der Berufsweg, Einkommen, Familie, Gesundheit und Beitragsentwicklung zusammen betrachtet werden müssen.</p><p class="area-context">Relevant für Angestellte oberhalb der Versicherungspflichtgrenze, Selbstständige und beihilfeberechtigte Personen.</p><a class="editorial-link" href="/gesundheit/private-krankenversicherung">Private Krankenversicherung verstehen <span aria-hidden="true">→</span></a></div></article>
           <article class="area"><span class="area-number">02</span><div><h3>Gesetzliche Krankenversicherung</h3><p class="area-copy">Die gesetzliche Krankenversicherung bietet einen einheitlich geregelten Kernschutz. Unterschiede entstehen unter anderem bei Zusatzbeitrag, Service, Satzungsleistungen und freiwilligen Zusatzangeboten.</p><p class="area-context">Relevant für Pflichtversicherte, freiwillig Versicherte und Familien mit beitragsfreier Familienversicherung.</p><a class="editorial-link" href="/gesundheit/gesetzliche-krankenversicherung">Gesetzliche Krankenversicherung verstehen <span aria-hidden="true">→</span></a></div></article>
           <article class="area"><span class="area-number">03</span><div><h3>Krankenzusatzversicherung</h3><p class="area-copy">Zusatzversicherungen können gezielt Bereiche ergänzen, die in der bestehenden Absicherung nicht oder nur teilweise enthalten sind. Entscheidend ist, welche Leistung tatsächlich wichtig ist und welche bereits anderweitig besteht.</p><p class="area-context">Dazu können beispielsweise Zahnbehandlung, Krankenhaus, ambulante Leistungen oder Krankentagegeld gehören.</p><span class="topic-status"><span>Zusatzschutz verstehen →</span><small>Seite in Vorbereitung</small></span></div></article>
-          <article class="area"><span class="area-number">04</span><div><h3>Pflegeabsicherung</h3><p class="area-copy">Pflegebedürftigkeit betrifft nicht nur die versicherte Person. Sie kann auch finanzielle und organisatorische Folgen für die Familie haben. Eine zusätzliche Absicherung soll eine konkret erkennbare Lücke sinnvoll reduzieren.</p><p class="area-context">Relevant sind unter anderem gewünschte Versorgung, vorhandenes Vermögen, familiäre Unterstützung und laufende Verpflichtungen.</p><span class="topic-status"><span>Pflegeabsicherung verstehen →</span><small>Seite in Vorbereitung</small></span></div></article>
+          <article class="area"><span class="area-number">04</span><div><h3>Pflegeabsicherung</h3><p class="area-copy">Pflegebedürftigkeit betrifft nicht nur die versicherte Person. Sie kann auch finanzielle und organisatorische Folgen für die Familie haben. Eine zusätzliche Absicherung soll eine konkret erkennbare Lücke sinnvoll reduzieren.</p><p class="area-context">Relevant sind unter anderem gewünschte Versorgung, vorhandenes Vermögen, familiäre Unterstützung und laufende Verpflichtungen.</p><a class="editorial-link" href="/gesundheit/pflege">Pflegeabsicherung verstehen <span aria-hidden="true">→</span></a></div></article>
         </div>
       </div>
     </section>
