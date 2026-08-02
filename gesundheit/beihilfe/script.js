@@ -1,98 +1,24 @@
 (() => {
-  const state = { children: 0 };
+  const chapters=[...document.querySelectorAll('.chapter')];
+  const count=document.querySelector('#progressCount');
+  const bar=document.querySelector('#progressBar');
+  const name=document.querySelector('#progressName');
+  const observer=new IntersectionObserver(entries=>{const v=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!v)return;const i=chapters.indexOf(v.target);count.textContent=`${String(i+1).padStart(2,'0')} / ${String(chapters.length).padStart(2,'0')}`;bar.style.width=`${((i+1)/chapters.length)*100}%`;name.textContent=v.target.dataset.name;},{threshold:[.3,.55]});
+  chapters.forEach(c=>observer.observe(c));
 
-  const aidResult = document.querySelector('#aidResult');
-  const aidBar = document.querySelector('#aidBar');
-  const aidText = document.querySelector('#aidText');
-  const childrenOutput = document.querySelector('#childrenOutput');
-  const childrenField = document.querySelector('#childrenField');
-  const aidSystem = document.querySelector('#aidSystem');
+  document.querySelectorAll('[data-aid]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-aid]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const aid=Number(btn.dataset.aid),rest=100-aid;document.querySelector('#aidPart').style.width=`${aid}%`;document.querySelector('#restPart').style.width=`${rest}%`;document.querySelector('#aidPart b').textContent=`${aid} %`;document.querySelector('#restPart b').textContent=`${rest} %`;document.querySelector('#shareText').textContent=`Bei ${aid} Prozent Beihilfe verbleiben ${rest} Prozent Restkosten.`;}));
 
-  function updateAid() {
-    const status = document.querySelector('input[name="status"]:checked')?.value || 'active';
-    let aid = 50;
+  const pathCopy={gkv:'<h3>Die freiwillige GKV kann richtig sein.</h3><p>Zum Beispiel bei bestimmten Familienkonstellationen, pauschaler Beihilfe oder gesundheitlichen Gründen.</p>',pkv:'<h3>Beihilfe plus PKV kann richtig sein.</h3><p>Der Dienstherr übernimmt den beihilfefähigen Anteil. Versichert wird der verbleibende Rest. Entscheidend sind Tarifleistung, Gesundheitsprüfung und Familienplanung.</p>'};
+  document.querySelectorAll('[data-path]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-path]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelector('#pathCopy').innerHTML=pathCopy[btn.dataset.path];}));
 
-    if (status === 'retired' || status === 'spouse') aid = 70;
-    if (status === 'child') aid = 80;
-    if (status === 'active' && state.children >= 2) aid = 70;
+  const state={children:0};
+  const out=document.querySelector('#childrenOutput'),field=document.querySelector('#childrenField'),system=document.querySelector('#system'),result=document.querySelector('#restResult'),aidV=document.querySelector('#aidVisual'),restV=document.querySelector('#restVisual'),text=document.querySelector('#restText');
+  function update(){const status=document.querySelector('input[name="status"]:checked')?.value||'active';let aid=50;if(status==='retired'||status==='spouse')aid=70;if(status==='child')aid=80;if(status==='active'&&state.children>=2)aid=70;field.hidden=status!=='active';if(system.value==='pauschal'){result.textContent='Sondermodell';aidV.style.width='50%';restV.style.width='50%';aidV.textContent='Beitragszuschuss';restV.textContent='eigener Beitrag';text.textContent='Bei pauschaler Beihilfe beteiligt sich der Dienstherr am Krankenversicherungsbeitrag. Die Landesregelung muss geprüft werden.';return;}const rest=100-aid;result.textContent=`${rest} %`;aidV.style.width=`${aid}%`;restV.style.width=`${rest}%`;aidV.textContent=`Beihilfe ${aid} %`;restV.textContent=`Rest ${rest} %`;text.textContent=system.value==='land'?`Typischer Ausgangswert: ${rest} Prozent Restkosten. Landesrecht kann abweichen.`:`Ein Beihilfetarif würde typischerweise ${rest} Prozent Restkosten abbilden.`;}
+  document.querySelectorAll('input[name="status"]').forEach(i=>i.addEventListener('change',update));document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>{state.children=Math.max(0,Math.min(6,state.children+Number(b.dataset.step)));out.textContent=state.children;update();}));system.addEventListener('change',update);
 
-    childrenField.hidden = status !== 'active';
+  const stories={today:'<small>Heute prüfen</small><h3>Nicht nur den Preis. Den Einstieg in den späteren Tarif.</h3><p>Anwärterbeitrag, Umstellung, Selbstbeteiligung und Leistungsausschlüsse gehören gemeinsam betrachtet.</p>',later:'<small>Später relevant</small><h3>Leistungsgrenzen werden sichtbar, wenn Sie sie brauchen.</h3><p>Psychotherapie, Zahnersatz, Hilfsmittel und stationäre Wahlleistungen müssen konkret in den Bedingungen stehen.</p>',future:'<small>Langfristig prüfen</small><h3>Beihilfesatz, Alterungsrückstellungen und Tarifentwicklung.</h3><p>Der heutige Beitrag ist nur ein Teil der Rechnung.</p>'};
+  document.querySelectorAll('[data-story]').forEach(b=>b.addEventListener('click',()=>document.querySelector('#storyDetail').innerHTML=stories[b.dataset.story]));
 
-    if (aidSystem.value === 'pauschal') {
-      aidResult.textContent = 'Sondermodell';
-      aidBar.style.width = '50%';
-      aidText.textContent = 'Bei pauschaler Beihilfe beteiligt sich der Dienstherr typischerweise am Krankenversicherungsbeitrag. Die konkrete Landesregelung muss gesondert geprüft werden.';
-    } else {
-      aidResult.textContent = `${aid} %`;
-      aidBar.style.width = `${aid}%`;
-      aidText.textContent = aidSystem.value === 'land'
-        ? `Typischer Ausgangswert: ${aid} %. Das Landesrecht kann davon abweichen.`
-        : `Die PKV würde typischerweise die verbleibenden ${100 - aid} Prozent als Restkosten absichern.`;
-    }
-
-    document.querySelector('#heroAid').textContent = `${aid} %`;
-    document.querySelector('#heroPkv').textContent = `${100 - aid} %`;
-  }
-
-  document.querySelectorAll('input[name="status"]').forEach((el) => {
-    el.addEventListener('change', updateAid);
-  });
-
-  document.querySelectorAll('[data-step]').forEach((button) => {
-    button.addEventListener('click', () => {
-      state.children = Math.max(0, Math.min(6, state.children + Number(button.dataset.step)));
-      childrenOutput.textContent = state.children;
-      updateAid();
-    });
-  });
-
-  aidSystem.addEventListener('change', updateAid);
-
-  document.querySelectorAll('.profile-switch button').forEach((button) => {
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.profile-switch button').forEach((item) => item.setAttribute('aria-selected', 'false'));
-      button.setAttribute('aria-selected', 'true');
-
-      document.querySelector('#profileNote').textContent =
-        button.dataset.profile === 'anwaerter'
-          ? 'Anwärtertarife starten häufig deutlich günstiger, enden aber mit dem Statuswechsel. Die spätere Umstellung gehört deshalb zwingend in den Vergleich.'
-          : 'Ein belastbarer Vergleich benötigt Status, Bundesland, Beihilfesatz, Gesundheitsdaten und gewünschte Leistungen.';
-    });
-  });
-
-  const grossIncome = document.querySelector('#grossIncome');
-  const grossOutput = document.querySelector('#grossOutput');
-  const gkvEstimate = document.querySelector('#gkvEstimate');
-  const costProfile = document.querySelector('#costProfile');
-  const costAid = document.querySelector('#costAid');
-
-  function formatEuro(value) {
-    return new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'EUR',
-      maximumFractionDigits: 0
-    }).format(value);
-  }
-
-  function updateCostModel() {
-    const gross = Number(grossIncome.value);
-    const cappedIncome = Math.min(gross, 5700);
-    const modelRate = 0.175;
-    const careRate = 0.036;
-    const monthly = Math.round(cappedIncome * (modelRate + careRate));
-
-    grossOutput.textContent = formatEuro(gross);
-    gkvEstimate.textContent = `ca. ${formatEuro(monthly)}`;
-
-    const profile = costProfile.value === 'anwaerter' ? 'Anwärtertarif' : 'Beamtentarif';
-    const aid = costAid.value;
-    document.querySelector('#pkvEstimate').textContent = `${profile} für ${100 - aid} % Restkosten`;
-  }
-
-  grossIncome.addEventListener('input', updateCostModel);
-  costProfile.addEventListener('change', updateCostModel);
-  costAid.addEventListener('change', updateCostModel);
-
-  updateAid();
-  updateCostModel();
+  document.querySelector('#contactForm').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.currentTarget);const subject=encodeURIComponent(`Beihilfe-Anfrage: ${d.get('topic')}`);const body=encodeURIComponent(`Vorname: ${d.get('firstname')}\nKontakt: ${d.get('contact')}\nThema: ${d.get('topic')}\n\nNachricht:\n${d.get('message')||''}`);location.href=`mailto:kontakt@hanse-konzept.de?subject=${subject}&body=${body}`;});
+  update();
 })();
