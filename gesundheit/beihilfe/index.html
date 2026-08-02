@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Beihilfe und private Krankenversicherung | Hanse-Konzept</title>
-  <meta name="description" content="Beihilfe für Beamte und Anwärter verständlich erklärt: typische Beihilfesätze, Restkosten, GKV oder PKV, Öffnungsaktion und persönlicher Beihilfe-Check.">
+  <title>Beihilfe für Beamte und Anwärter | Hanse-Konzept</title>
+  <meta name="description" content="Beihilfe verständlich erklärt: GKV oder PKV, typische Beihilfesätze, Restkosten, Gesundheitsprüfung, häufige Fragen und persönliche Beitragsprüfung.">
   <link rel="canonical" href="https://hanse-konzept.de/gesundheit/beihilfe/">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -12,218 +12,425 @@
   <link rel="stylesheet" href="/gesundheit/beihilfe/styles.css">
 </head>
 <body>
-  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <header class="header">
+  <header class="site-header">
     <a href="/" class="brand" aria-label="Hanse-Konzept – Startseite">
       <picture>
         <source srcset="/assets/brand/hanse-konzept-logo.webp" type="image/webp">
         <img src="/assets/brand/hanse-konzept-logo.png" alt="Hanse-Konzept" width="1200" height="156">
       </picture>
     </a>
-    <a class="header-cta" href="#beihilfe-check">Beihilfe prüfen</a>
+    <a class="header-cta" href="#beitragscheck">Beitrag prüfen</a>
   </header>
 
   <main id="main">
-    <section class="hero shell">
+    <section class="hero section-shell">
       <div class="hero-copy">
-        <p class="eyebrow">Für Beamtenanwärter, Beamte und Familien</p>
-        <h1>Beihilfe klingt kompliziert.<br>Das Prinzip ist es nicht.</h1>
-        <p class="lead">Der Dienstherr beteiligt sich an beihilfefähigen Krankheitskosten. Sie versichern den verbleibenden Anteil. Status, Dienstherr, Bundesland und Familie bestimmen, wie diese Rechnung aussieht.</p>
-        <div class="actions">
-          <a class="btn primary" href="#beihilfe-check">Beihilfesatz prüfen</a>
-          <a class="btn link" href="#prinzip">Das Prinzip ansehen</a>
+        <p class="eyebrow">Exklusiv für Beamtenanwärter und Beamte</p>
+        <h1>Die Beihilfe richtig nutzen. Ohne Amtsdeutsch.</h1>
+        <p class="lead">In wenigen Minuten verstehen Sie, wie Beihilfe und private Krankenversicherung zusammenspielen, welche Kosten in der GKV häufig unterschätzt werden und worauf Sie bei der Tarifwahl wirklich achten müssen.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#beitragscheck">Beitrag einschätzen</a>
+          <a class="button secondary" href="#beihilfe-erklaert">Beihilfe erklärt</a>
         </div>
-        <p class="micro">Keine Datenspeicherung. Keine Tarifentscheidung. Erst einmal verstehen.</p>
+        <div class="trust-row">
+          <span>Persönliche Prüfung</span>
+          <span>Keine Tarifautomatik</span>
+          <span>Keine Datenspeicherung</span>
+        </div>
       </div>
 
-      <div class="hero-card" aria-label="Beispiel für das Zusammenspiel aus Beihilfe und privater Krankenversicherung">
-        <div class="invoice"><span>Beihilfefähige Rechnung</span><strong>1.000 €</strong></div>
-        <div class="split">
-          <div class="part beihilfe"><span>Beihilfe</span><strong id="hero-beihilfe">50 %</strong></div>
-          <div class="part rest"><span>Restkosten-PKV</span><strong id="hero-rest">50 %</strong></div>
+      <div class="hero-visual" aria-label="Visualisierung von Beihilfe und privater Krankenversicherung">
+        <div class="invoice-card">
+          <div>
+            <span>Beihilfefähige Rechnung</span>
+            <strong>1.000 €</strong>
+          </div>
+          <div class="invoice-line"></div>
+          <div class="coverage-split">
+            <div class="coverage-part aid">
+              <span>Beihilfe</span>
+              <strong id="heroAid">50 %</strong>
+            </div>
+            <div class="coverage-part pkv">
+              <span>PKV-Restkosten</span>
+              <strong id="heroPkv">50 %</strong>
+            </div>
+          </div>
+          <p>Vereinfachtes Beispiel. Beihilfefähigkeit und Tarifbedingungen entscheiden über die tatsächliche Erstattung.</p>
         </div>
-        <p>Die Aufteilung ist ein vereinfachtes Beispiel. Landesrecht und Tarifbedingungen können abweichen.</p>
       </div>
     </section>
 
-    <section class="decision shell">
-      <div class="heading">
-        <p class="eyebrow">Die erste Entscheidung</p>
-        <h2>GKV oder Beihilfe plus PKV?</h2>
-        <p>Beide Wege funktionieren anders. Wer nur Monatsbeiträge vergleicht, übersieht Familienkonstellation, pauschale Beihilfe, Gesundheitszustand und Leistungsumfang.</p>
+    <section class="problem section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Das Problem</p>
+        <h2>Der GKV-Irrtum kostet Beamte oft über Jahre unnötig Geld.</h2>
+        <p>Wer neu in die Beamtenlaufbahn startet, bekommt Formulare, Fristen und Fachbegriffe. Was dabei leicht untergeht: Die Entscheidung zwischen freiwilliger GKV und Beihilfe plus PKV folgt einer völlig anderen Beitragslogik.</p>
       </div>
-      <div class="toggle" role="tablist" aria-label="Profil auswählen">
+
+      <div class="warning-card">
+        <strong>Wichtig:</strong>
+        <p>Bei klassischer individueller Beihilfe beteiligt sich der Dienstherr nicht automatisch hälftig am GKV-Beitrag. Wer in der freiwilligen GKV bleibt, zahlt den Beitrag häufig selbst. Länder mit pauschaler Beihilfe bilden eine wichtige Ausnahme.</p>
+      </div>
+
+      <div class="pitfalls">
+        <article>
+          <span>01</span>
+          <h3>Der volle GKV-Beitrag</h3>
+          <p>In der freien Wirtschaft beteiligt sich der Arbeitgeber. Bei klassischer Beihilfe fehlt dieser Zuschuss häufig. Das kann den monatlichen Eigenaufwand deutlich erhöhen.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Ungenutzte Beihilfe</h3>
+          <p>Der Dienstherr übernimmt je nach Status und Familienkonstellation einen Teil beihilfefähiger Kosten. Wer dieses System nicht nutzt, verzichtet auf genau diesen Vorteil.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Leistung und Preis laufen auseinander</h3>
+          <p>Ein hoher GKV-Beitrag bedeutet nicht automatisch Zugang zu privatärztlicher Behandlung, Wahlleistungen oder einer besseren Zahnversorgung.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Der falsche Tarifaufbau</h3>
+          <p>Beamte benötigen keine normale Vollkostenversicherung. Entscheidend ist ein Tarif, der exakt den verbleibenden Restkostenanteil und Beihilfelücken abbildet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="beihilfe-erklaert" class="solution dark-section">
+      <div class="section-shell">
+        <div class="section-heading light">
+          <p class="eyebrow">Die Lösung</p>
+          <h2>So funktioniert Beihilfe in drei einfachen Schritten.</h2>
+          <p>Das System ist neu, wenn Sie bisher gesetzlich versichert waren. Der Ablauf selbst ist schnell verstanden.</p>
+        </div>
+
+        <div class="steps">
+          <article>
+            <span>1</span>
+            <h3>Sie gehen zum Arzt.</h3>
+            <p>Sie werden privat behandelt und erhalten die Rechnung direkt. Damit sehen Sie transparent, welche Leistungen abgerechnet wurden.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>Der Dienstherr übernimmt seinen Anteil.</h3>
+            <p>Die Beihilfestelle erstattet den beihilfefähigen Teil. Typische Bemessungssätze liegen – abhängig von Status und Familie – zwischen 50 und 80 Prozent.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Die PKV übernimmt den Rest.</h3>
+            <p>Der passende Beihilfetarif ergänzt die verbleibenden Restkosten und – je nach Tarif – zusätzliche Lücken der Beihilfe.</p>
+          </article>
+        </div>
+
+        <a class="button light-button" href="#beitragscheck">Persönliche Konstellation prüfen</a>
+      </div>
+    </section>
+
+    <section class="comparison-section section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Gesetzlich oder privat?</p>
+        <h2>Warum viele Beamte mit Beihilfe und PKV besser fahren.</h2>
+        <p>Die Unterschiede liegen nicht nur im Beitrag. Sie liegen ebenso in Behandlung, Arztwahl, stationären Leistungen, Zahnersatz und der Frage, ob der Dienstherr einen Teil der Kosten übernimmt.</p>
+      </div>
+
+      <div class="profile-switch" role="tablist" aria-label="Profil auswählen">
         <button role="tab" aria-selected="true" data-profile="beamte">Beamte</button>
         <button role="tab" aria-selected="false" data-profile="anwaerter">Anwärter</button>
       </div>
-      <div class="comparison">
-        <article>
-          <p class="tag">Freiwillige GKV</p>
+
+      <div class="system-comparison">
+        <article class="system-card gkv-card">
+          <p class="card-label">Gesetzliche Krankenversicherung</p>
           <h3>Beitrag nach Einkommen</h3>
           <ul>
             <li>Beitrag orientiert sich an beitragspflichtigen Einnahmen.</li>
-            <li>Bei klassischer individueller Beihilfe gibt es häufig keinen hälftigen Arbeitgeberzuschuss.</li>
-            <li>Leistungen folgen dem gesetzlichen System.</li>
+            <li>Bei klassischer Beihilfe häufig ohne hälftigen Arbeitgeberzuschuss.</li>
+            <li>Leistungen folgen dem gesetzlichen Leistungskatalog.</li>
           </ul>
+          <div class="system-footer">Volle Beitragsbelastung möglich</div>
         </article>
-        <div class="vs">oder</div>
-        <article class="accent-card">
-          <p class="tag">Beihilfe + PKV</p>
-          <h3>Versichert wird der Rest</h3>
+
+        <div class="versus">vs.</div>
+
+        <article class="system-card pkv-card">
+          <p class="card-label">Beihilfe plus PKV</p>
+          <h3>Beitrag für den Restkostenanteil</h3>
           <ul>
-            <li>Der Dienstherr erstattet den beihilfefähigen Anteil.</li>
-            <li>Die PKV ergänzt den vereinbarten Restkostenanteil.</li>
-            <li>Leistungen richten sich nach Beihilferecht und Tarif.</li>
+            <li>Versichert wird nur der Teil, den die Beihilfe nicht übernimmt.</li>
+            <li>Leistungen richten sich nach dem gewählten Tarif.</li>
+            <li>Beitrag hängt unter anderem von Alter, Gesundheit und Leistungsumfang ab.</li>
           </ul>
+          <div class="system-footer">Restkosten statt Vollkosten</div>
         </article>
       </div>
-      <p class="note" id="profile-note">Ob GKV oder PKV besser passt, ergibt sich erst aus einer vollständigen Gegenüberstellung.</p>
+
+      <p class="comparison-note" id="profileNote">Ein belastbarer Vergleich benötigt Status, Bundesland, Beihilfesatz, Gesundheitsdaten und gewünschte Leistungen.</p>
     </section>
 
-    <section id="prinzip" class="dark">
-      <div class="shell">
-        <div class="heading light">
-          <p class="eyebrow">So funktioniert es</p>
-          <h2>Drei Stationen. Eine Rechnung.</h2>
+    <section class="benefits section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Auf einen Blick</p>
+        <h2>Wo sich die Systeme im Alltag unterscheiden.</h2>
+      </div>
+
+      <div class="benefit-table" role="table" aria-label="Leistungsvergleich GKV und PKV">
+        <div class="benefit-row head" role="row">
+          <div role="columnheader">Leistung</div>
+          <div role="columnheader">GKV</div>
+          <div role="columnheader">PKV mit Beihilfetarif</div>
         </div>
-        <div class="steps">
-          <article><span>01</span><h3>Behandlung</h3><p>Sie erhalten eine Rechnung von Arzt, Klinik oder Therapeut.</p></article>
-          <article><span>02</span><h3>Beihilfe</h3><p>Die Rechnung geht an die Beihilfestelle. Sie erstattet den beihilfefähigen Anteil.</p></article>
-          <article><span>03</span><h3>Restkosten</h3><p>Die private Krankenversicherung übernimmt den versicherten Rest nach Tarifbedingungen.</p></article>
+        <div class="benefit-row" role="row">
+          <div role="cell">Arztwahl</div><div role="cell">Kassenärzte</div><div role="cell">Tarifabhängig auch Privatärzte</div>
+        </div>
+        <div class="benefit-row" role="row">
+          <div role="cell">Stationäre Wahlleistungen</div><div role="cell">Nicht regulär enthalten</div><div role="cell">Je nach Tarif versicherbar</div>
+        </div>
+        <div class="benefit-row" role="row">
+          <div role="cell">Zahnersatz</div><div role="cell">Festzuschuss</div><div role="cell">Tarifabhängige höhere Erstattung möglich</div>
+        </div>
+        <div class="benefit-row" role="row">
+          <div role="cell">Sehhilfen</div><div role="cell">Nur in engen Grenzen</div><div role="cell">Tarifabhängige Leistungen möglich</div>
+        </div>
+        <div class="benefit-row" role="row">
+          <div role="cell">Psychotherapie</div><div role="cell">Kassenzulassung und Genehmigung</div><div role="cell">Tarifbedingungen und Sitzungsumfang beachten</div>
+        </div>
+        <div class="benefit-row" role="row">
+          <div role="cell">Ausland</div><div role="cell">Gesetzliche Grenzen</div><div role="cell">Je nach Tarif erweiterter Schutz</div>
         </div>
       </div>
+
+      <p class="table-note">Die Tabelle zeigt typische Unterschiede. Sie ersetzt keinen Tarifvergleich und keine Prüfung der konkreten Versicherungsbedingungen.</p>
     </section>
 
-    <section id="beihilfe-check" class="shell">
-      <div class="heading">
-        <p class="eyebrow">Beihilfe-Check</p>
-        <h2>Welcher Anteil könnte bei Ihnen gelten?</h2>
-        <p>Der Check bildet typische Bundessätze ab. Landesrecht, Heilfürsorge, pauschale Beihilfe und Sonderfälle müssen separat geprüft werden.</p>
+    <section id="beitragscheck" class="aid-check section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Beihilfe kompakt</p>
+        <h2>Welcher Beihilfesatz könnte bei Ihnen gelten?</h2>
+        <p>Der Check bildet typische Bundessätze ab. Landesrecht, pauschale Beihilfe, Heilfürsorge und Sonderfälle können davon abweichen.</p>
       </div>
 
-      <form class="checker" id="aid-form">
+      <form id="aidForm" class="aid-form">
         <div class="form-column">
           <fieldset>
             <legend>Status</legend>
-            <div class="choices">
-              <label><input type="radio" name="status" value="active" checked><span>Aktiv im Dienst</span></label>
-              <label><input type="radio" name="status" value="retired"><span>Im Ruhestand</span></label>
-              <label><input type="radio" name="status" value="spouse"><span>Berücksichtigungsfähiger Ehepartner</span></label>
-              <label><input type="radio" name="status" value="child"><span>Berücksichtigungsfähiges Kind</span></label>
+            <div class="choice-grid">
+              <label><input type="radio" name="status" value="active" checked><span>Beamter oder Anwärter</span></label>
+              <label><input type="radio" name="status" value="retired"><span>Ruhestand</span></label>
+              <label><input type="radio" name="status" value="spouse"><span>Ehegatte</span></label>
+              <label><input type="radio" name="status" value="child"><span>Kind</span></label>
             </div>
           </fieldset>
 
-          <fieldset id="children-field">
+          <fieldset id="childrenField">
             <legend>Berücksichtigungsfähige Kinder</legend>
             <div class="stepper">
               <button type="button" data-step="-1" aria-label="Kinderzahl verringern">−</button>
-              <output id="children-output">0</output>
+              <output id="childrenOutput">0</output>
               <button type="button" data-step="1" aria-label="Kinderzahl erhöhen">+</button>
             </div>
           </fieldset>
 
-          <label class="select-label" for="system">Dienstherr / System</label>
-          <select id="system">
+          <label class="select-label" for="aidSystem">System</label>
+          <select id="aidSystem">
             <option value="bund">Bund / typische individuelle Beihilfe</option>
-            <option value="land">Bundesland – Regelung prüfen</option>
-            <option value="pauschal">Pauschale Beihilfe möglich</option>
+            <option value="land">Bundesland – Abweichung möglich</option>
+            <option value="pauschal">Pauschale Beihilfe</option>
           </select>
         </div>
 
-        <div class="result" aria-live="polite">
+        <div class="aid-result" aria-live="polite">
           <p>Typischer Beihilfeanteil</p>
-          <strong id="aid-result">50 %</strong>
-          <div class="bar"><span id="aid-bar" style="width:50%"></span></div>
-          <p id="result-text">Die PKV würde typischerweise die verbleibenden 50 % als Restkosten absichern.</p>
-          <small>Ihre Angaben bleiben auf diesem Gerät.</small>
+          <strong id="aidResult">50 %</strong>
+          <div class="result-bar"><span id="aidBar" style="width:50%"></span></div>
+          <p id="aidText">Die PKV würde typischerweise die verbleibenden 50 Prozent als Restkosten absichern.</p>
+          <small>Ihre Angaben werden nicht gespeichert.</small>
         </div>
       </form>
-    </section>
 
-    <section class="shell">
-      <div class="heading">
-        <p class="eyebrow">Im Alltag</p>
-        <h2>Der Prozentsatz ist nur der Anfang.</h2>
-        <p>Beihilfe zahlt auf beihilfefähige Aufwendungen. Genau deshalb muss ein Tarif mehr können, als lediglich den Restprozentsatz abzubilden.</p>
-      </div>
-      <div class="examples">
-        <article>
-          <p class="tag">Vereinfachtes Beispiel</p>
-          <h3>Arzt und Medikament: 120 €</h3>
-          <div class="flow"><span>Beihilfe 60 €</span><span>PKV 60 €</span></div>
-          <p>Beispiel bei 50 Prozent Beihilfe und vollständiger tariflicher Restkostenerstattung.</p>
-        </article>
-        <article>
-          <p class="tag">Beihilfelücke</p>
-          <h3>Neue Brille: 400 €</h3>
-          <div class="flow uneven"><span>Beihilfe auf anerkannten Betrag</span><span>Tarifabhängige Ergänzung</span></div>
-          <p>Hier unterscheiden sich tatsächliche Kosten, beihilfefähiger Betrag und Tarifleistung.</p>
-        </article>
+      <div class="aid-rates">
+        <article><strong>50 %</strong><span>Beamte und Anwärter</span></article>
+        <article><strong>70 %</strong><span>Bei mindestens zwei berücksichtigungsfähigen Kindern</span></article>
+        <article><strong>70 %</strong><span>Versorgungsempfänger und häufig Ehegatten</span></article>
+        <article><strong>80 %</strong><span>Berücksichtigungsfähige Kinder</span></article>
       </div>
     </section>
 
-    <section class="shell">
-      <div class="heading">
-        <p class="eyebrow">Leistungen</p>
-        <h2>Wo Beihilfe und Tarif zusammenspielen müssen.</h2>
-      </div>
-      <div class="explorer" role="tablist" aria-label="Leistungsbereiche">
-        <button class="active" data-detail="ambulant">Ambulant</button>
-        <button data-detail="stationaer">Stationär</button>
-        <button data-detail="zahn">Zahn</button>
-        <button data-detail="familie">Familie</button>
-      </div>
-      <div class="detail" id="detail">
-        Arztwahl, Psychotherapie, Heilmittel, Hilfsmittel und Höchstsätze gehören zusammen. Der Ergänzungstarif entscheidet, welche Beihilfelücken geschlossen werden.
-      </div>
-    </section>
-
-    <section class="dark">
-      <div class="shell">
-        <div class="heading light">
-          <p class="eyebrow">Vor der Entscheidung</p>
-          <h2>Die Fragen, die später den Unterschied machen.</h2>
+    <section class="examples dark-section">
+      <div class="section-shell">
+        <div class="section-heading light">
+          <p class="eyebrow">Rechenbeispiele</p>
+          <h2>So spielen Beihilfe und PKV im Alltag zusammen.</h2>
+          <p>Zwei einfache Fälle zeigen, warum der Beihilfesatz allein noch nicht die gesamte Erstattung erklärt.</p>
         </div>
-        <div class="faq">
-          <details><summary>Wie entwickeln sich Beiträge im Alter?</summary><p>Alterungsrückstellungen, Tarifgestaltung, Beihilfesatz im Ruhestand und Entlastungsbausteine müssen zusammen betrachtet werden. Eine feste Beitragsentwicklung über Jahrzehnte lässt sich nicht garantieren.</p></details>
-          <details><summary>Was gilt bei Vorerkrankungen?</summary><p>Gesundheitsfragen müssen vollständig beantwortet werden. Je nach Befund sind reguläre Annahme, Risikozuschlag oder Ablehnung möglich. Für bestimmte Beihilfeberechtigte existiert die Öffnungsaktion unter festgelegten Voraussetzungen und Fristen.</p></details>
-          <details><summary>Was ändert sich mit Kindern?</summary><p>Beim Bund steigt der Bemessungssatz der beihilfeberechtigten Person bei mindestens zwei berücksichtigungsfähigen Kindern typischerweise auf 70 Prozent. Jedes Kind benötigt einen eigenen Krankenversicherungsschutz.</p></details>
-          <details><summary>Was bedeutet pauschale Beihilfe?</summary><p>Einige Länder beteiligen sich auf Antrag pauschal am Krankenversicherungsbeitrag. Das ist ein anderes System als die individuelle Kostenerstattung und kann langfristige Folgen haben.</p></details>
-          <details><summary>Was passiert nach der Anwärterzeit?</summary><p>Anwärtertarife sind zeitlich an den Status gebunden. Mit dem Statuswechsel ändern sich Beitrag und Tarifstruktur. Die spätere Umstellung muss von Anfang an mitgedacht werden.</p></details>
+
+        <div class="example-grid">
+          <article>
+            <p class="card-label">Arztbesuch mit Medikament</p>
+            <h3>Rechnung: 120 €</h3>
+            <ol>
+              <li><span>Arztrechnung</span><strong>120 €</strong></li>
+              <li><span>Beihilfe bei 50 %</span><strong>60 €</strong></li>
+              <li><span>PKV-Restkosten</span><strong>60 €</strong></li>
+              <li class="total"><span>Eigenanteil</span><strong>0 €*</strong></li>
+            </ol>
+            <small>*Vereinfachtes Beispiel bei vollständiger tariflicher Erstattung.</small>
+          </article>
+
+          <article>
+            <p class="card-label">Neue Brille</p>
+            <h3>Kosten: 400 €</h3>
+            <ol>
+              <li><span>Tatsächliche Kosten</span><strong>400 €</strong></li>
+              <li><span>Beihilfefähiger Betrag</span><strong>tarif-/rechtsabhängig</strong></li>
+              <li><span>PKV-Ergänzung</span><strong>tarifabhängig</strong></li>
+              <li class="total"><span>Eigenanteil</span><strong>muss geprüft werden</strong></li>
+            </ol>
+            <small>Hier entscheidet der Ergänzungstarif, ob und wie Beihilfelücken geschlossen werden.</small>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="shell journey">
-      <div class="heading">
-        <p class="eyebrow">Der Weg zur Entscheidung</p>
-        <h2>Vier Schritte. Kein Tarifblindflug.</h2>
+    <section class="journey section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Schritt für Schritt</p>
+        <h2>So kommen Sie zu einer belastbaren Entscheidung.</h2>
       </div>
-      <ol>
-        <li><span>01</span><div><h3>Status und Beihilfe klären</h3><p>Dienstherr, Bundesland, Familienstand und Bemessungssatz setzen den Rahmen.</p></div></li>
-        <li><span>02</span><div><h3>Gesundheit vorbereiten</h3><p>Diagnosen, Behandlungen und Unterlagen werden vor einer Antragstellung sauber zusammengestellt.</p></div></li>
-        <li><span>03</span><div><h3>Leistungen vergleichen</h3><p>Nicht nur der Startbeitrag zählt. Tarifbedingungen, Ergänzungsschutz und spätere Veränderungen gehören in den Vergleich.</p></div></li>
-        <li><span>04</span><div><h3>Entscheidung treffen</h3><p>Erst wenn Zahlen und Leistungen nachvollziehbar sind, folgt der Antrag.</p></div></li>
+
+      <ol class="journey-list">
+        <li><span>1</span><div><h3>Beitrag einschätzen</h3><p>Wir berechnen eine erste Größenordnung anhand von Status, Alter, Beihilfesatz und gewünschtem Leistungsumfang.</p></div></li>
+        <li><span>2</span><div><h3>Situation und Ziele klären</h3><p>Dienstherr, Bundesland, Familienplanung, pauschale Beihilfe und spätere Statuswechsel gehören in dieselbe Betrachtung.</p></div></li>
+        <li><span>3</span><div><h3>Tarife sauber vergleichen</h3><p>Entscheidend sind nicht nur Monatsbeiträge. Ambulante, stationäre und zahnärztliche Leistungen, Beihilfeergänzung und Beitragslogik zählen ebenso.</p></div></li>
+        <li><span>4</span><div><h3>Gesundheitsprüfung vorbereiten</h3><p>Diagnosen, Behandlungen und Unterlagen werden vollständig vorbereitet. Erst danach folgt eine Antragstellung.</p></div></li>
       </ol>
+
+      <a class="button primary" href="/#kontakt?thema=beihilfe">Persönliche Prüfung starten</a>
     </section>
 
-    <section class="cta shell">
-      <div>
-        <p class="eyebrow">Nächster Schritt</p>
-        <h2>Wie sieht die Rechnung bei Ihnen aus?</h2>
-        <p>Wir klären Beihilfesatz, Status und gewünschte Leistungen. Danach sehen Sie, welchen Restkostenanteil Sie versichern und welche Tarifmerkmale dafür nötig sind.</p>
+    <section class="objections dark-section">
+      <div class="section-shell">
+        <div class="section-heading light">
+          <p class="eyebrow">Häufige Bedenken</p>
+          <h2>Was viele Beamte vor der Entscheidung wissen wollen.</h2>
+        </div>
+
+        <div class="accordion">
+          <details>
+            <summary>Werden PKV-Beiträge im Alter unbezahlbar?</summary>
+            <p>Beiträge können sich verändern. Alterungsrückstellungen, Tarifkalkulation, Beihilfesatz im Ruhestand und Entlastungsbausteine wirken zusammen. Eine seriöse Beratung rechnet nicht nur mit dem heutigen Beitrag.</p>
+          </details>
+          <details>
+            <summary>Was passiert bei Vorerkrankungen?</summary>
+            <p>Gesundheitsfragen müssen vollständig beantwortet werden. Je nach Befund sind reguläre Annahme, Risikozuschlag oder Ablehnung möglich. Für bestimmte Beihilfeberechtigte existiert die Öffnungsaktion unter festgelegten Voraussetzungen.</p>
+          </details>
+          <details>
+            <summary>Wie verändert sich der Beitrag mit Kindern?</summary>
+            <p>Jedes Kind benötigt einen eigenen Krankenversicherungsschutz. Gleichzeitig kann sich der Beihilfesatz der beihilfeberechtigten Person erhöhen. Die Familienrechnung muss deshalb neu aufgestellt werden.</p>
+          </details>
+          <details>
+            <summary>Kann ich später zurück in die GKV?</summary>
+            <p>Das hängt von Alter, beruflicher Situation und Versicherungspflicht ab. Ein Wechsel zurück ist nicht in jeder Lebensphase frei möglich und sollte vorab mitgedacht werden.</p>
+          </details>
+          <details>
+            <summary>Was passiert nach der Anwärterzeit?</summary>
+            <p>Anwärtertarife sind an den Status gebunden. Mit der Verbeamtung auf Probe oder Lebenszeit ändert sich der Beitrag. Gute Tarife regeln die Umstellung nachvollziehbar.</p>
+          </details>
+        </div>
       </div>
-      <div class="cta-actions">
-        <a class="btn primary" href="/#kontakt?thema=beihilfe">Beihilfe und Beitrag prüfen</a>
-        <a class="btn secondary" href="/gesundheit/">Zurück zu Gesundheit</a>
+    </section>
+
+    <section class="cost-section section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Kostenvergleich</p>
+        <h2>Was kostet die Absicherung in Ihrer Konstellation?</h2>
+        <p>Statt eines festen Lockpreises zeigt der Rechner eine neutrale Beitragslogik. Ein echter Tarifbeitrag benötigt Alter, Gesundheitsdaten, Beihilfesatz, Bundesland und Leistungsumfang.</p>
+      </div>
+
+      <div class="cost-calculator">
+        <div class="calculator-controls">
+          <label>Profil
+            <select id="costProfile">
+              <option value="anwaerter">Anwärter</option>
+              <option value="beamter">Beamter</option>
+            </select>
+          </label>
+
+          <label>Monatliches Brutto
+            <input id="grossIncome" type="range" min="1500" max="7500" step="100" value="3500">
+            <output id="grossOutput">3.500 €</output>
+          </label>
+
+          <label>Beihilfesatz
+            <select id="costAid">
+              <option value="50">50 %</option>
+              <option value="70">70 %</option>
+              <option value="80">80 %</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="calculator-result" aria-live="polite">
+          <div>
+            <span>GKV-Beitrag</span>
+            <strong id="gkvEstimate">ca. 610 €</strong>
+            <small>vereinfachte Modellrechnung</small>
+          </div>
+          <div>
+            <span>PKV-Beihilfetarif</span>
+            <strong id="pkvEstimate">persönlich berechnen</strong>
+            <small>kein Fantasiepreis ohne Gesundheits- und Tarifdaten</small>
+          </div>
+          <p>Der Rechner zeigt bewusst keinen erfundenen PKV-Beitrag. Genau hier beginnt die persönliche Prüfung.</p>
+          <a class="button primary" href="/#kontakt?thema=beihilfe">Exakten Beitrag berechnen lassen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="what-you-get section-shell">
+      <div class="section-heading">
+        <p class="eyebrow">Was Sie bei Hanse-Konzept bekommen</p>
+        <h2>Keine Tarifliste. Eine nachvollziehbare Entscheidung.</h2>
+      </div>
+
+      <div class="value-grid">
+        <article><h3>Restkosten richtig aufbauen</h3><p>Der Tarif muss zu 50, 70 oder 80 Prozent Beihilfe passen und gleichzeitig typische Beihilfelücken berücksichtigen.</p></article>
+        <article><h3>Leistung vor Lockpreis</h3><p>Ein niedriger Startbeitrag hilft wenig, wenn Psychotherapie, Hilfsmittel, Zahnersatz oder stationäre Leistungen später fehlen.</p></article>
+        <article><h3>Gesundheitsprüfung vorbereiten</h3><p>Unterlagen werden vor dem Antrag sauber zusammengestellt. Das reduziert Rückfragen und vermeidet unnötige Fehler.</p></article>
+        <article><h3>Statuswechsel mitdenken</h3><p>Anwärterzeit, Verbeamtung, Familiengründung und Ruhestand verändern Beitrag und Beihilfesatz.</p></article>
+        <article><h3>Pauschale Beihilfe prüfen</h3><p>Wer diese Option hat, braucht einen echten Systemvergleich. Ein späterer Wechsel kann eingeschränkt sein.</p></article>
+        <article><h3>Persönliche Betreuung</h3><p>Sie sprechen nicht mit einem Callcenter. Die Entscheidung wird mit Ihrer konkreten Situation vorbereitet.</p></article>
+      </div>
+    </section>
+
+    <section class="final-cta section-shell">
+      <div>
+        <p class="eyebrow">Ihr nächster Schritt</p>
+        <h2>Finden wir heraus, wie Ihre Rechnung aussieht.</h2>
+        <p>Wir ermitteln Beihilfesatz, Status, Familienkonstellation und gewünschten Leistungsumfang. Danach sehen Sie, welcher Restkostenanteil versichert werden muss und welche Tarifmerkmale dafür nötig sind.</p>
+        <ul class="cta-benefits">
+          <li>Konkrete Beitragsberechnung</li>
+          <li>Vergleich von Leistung und Beitrag</li>
+          <li>Vorbereitung der Gesundheitsprüfung</li>
+          <li>Persönliche Erklärung ohne Fachchinesisch</li>
+        </ul>
+      </div>
+      <div class="cta-buttons">
+        <a class="button primary" href="/#kontakt?thema=beihilfe">Beitrag berechnen</a>
+        <a class="button secondary" href="/#kontakt?thema=beihilfe-frage">Frage stellen</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <p>© Hanse-Konzept</p>
-    <nav><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+    <nav>
+      <a href="/gesundheit/">Gesundheit</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+    </nav>
   </footer>
 
   <script src="/gesundheit/beihilfe/script.js"></script>
