@@ -36,7 +36,7 @@ window.BRINKMANN_TOPICS = [
       },
       {
         "type": "benefit",
-        "text": "Wenn Sie neben dem Rechtsschutz weitere Absicherungen bei uns führen – zum Beispiel Hausrat, Haftpflicht oder Unfall – kann daraus zusätzlich ein Preisvorteil entstehen."
+        "text": "Wenn Sie neben dem Rechtsschutz weitere Absicherungen bei uns führen – zum Beispiel Hausrat, Haftpflicht und/oder Wohngebäude – kann daraus zusätzlich ein Preisvorteil entstehen."
       },
       {
         "type": "highlight",
