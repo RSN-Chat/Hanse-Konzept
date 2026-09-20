@@ -12,7 +12,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const coverMarkup = page.innerHTML;
   const colors = ['#dbe0c9', '#cddcd6', '#e7dac0', '#dadbc2', '#d2d9dc', '#d8cfc0', '#c6d9cf', '#dbcbac'];
-  let current = readHash(), turning = false, pending = null;
+  let current = readHash(), turning = false;
   let gesture = null, suppressClickUntil = 0;
 
   function escapeHtml(value) {
@@ -113,8 +113,9 @@
 
   async function turnTo(index, updateHash = true) {
     if (!Number.isInteger(index) || index < 0 || index > topics.length) return;
-    if (turning) { pending = { index, updateHash }; return; }
+    if (turning) return;
     if (current === index) return;
+    turning = true;
     const forward = index > current;
     const old = cleanClone(page.cloneNode(true));
     const oldHeight = page.getBoundingClientRect().height;
@@ -130,44 +131,68 @@
     }
     if (restoreFocus || document.activeElement?.disabled) book.focus({ preventScroll: true });
     if (book.getBoundingClientRect().top < -80) book.scrollIntoView({ block: 'start', behavior: 'instant' });
-    if (reduced.matches || !layer.animate) return;
-
-    turning = true;
-    book.style.minHeight = `${Math.max(oldHeight, page.getBoundingClientRect().height)}px`;
-    const sheet = forward ? old : cleanClone(page.cloneNode(true));
-    let underlay;
-    if (!forward) {
-      underlay = document.createElement('div');
-      underlay.className = 'turn-underlay';
-      underlay.setAttribute('aria-hidden', 'true');
-      underlay.inert = true;
-      underlay.append(old);
-      layer.before(underlay);
+    if (reduced.matches || !layer.animate) {
+      if (page.animate && reduced.matches) {
+        const fade = page.animate([{ opacity: .72 }, { opacity: 1 }], { duration: 140, easing: 'ease-out' });
+        try { await fade.finished; } catch { /* Ein Abbruch darf die Bedienung nicht sperren. */ }
+        finally { fade.cancel(); }
+      }
+      turning = false;
+      return;
     }
+
+    book.style.minHeight = `${Math.max(oldHeight, page.getBoundingClientRect().height)}px`;
+    book.classList.add('is-page-turning');
+    const direction = forward ? 'turn-forward' : 'turn-backward';
+    const underlay = document.createElement('div');
+    underlay.className = `turn-underlay ${direction}`;
+    underlay.setAttribute('aria-hidden', 'true');
+    underlay.inert = true;
+    layer.before(underlay);
+    const back = document.createElement('div');
+    back.className = 'turn-back';
     const shade = document.createElement('div');
     shade.className = 'turn-shade';
-    layer.replaceChildren(sheet, shade);
-    layer.classList.add('is-turning');
-    const frames = mobile.matches ? [
-      { transform: 'translateY(0) rotateX(0)', opacity: 1, offset: 0 },
-      { transform: 'translateY(-8px) rotateX(7deg)', opacity: 1, offset: .2 },
-      { transform: 'translateY(-30%) rotateX(66deg)', opacity: 0, offset: 1 }
-    ] : [
-      { transform: 'rotateY(0)', opacity: 1, offset: 0 },
-      { transform: 'rotateY(-9deg) translateZ(4px)', opacity: 1, offset: .2 },
-      { transform: 'rotateY(-100deg)', opacity: 0, offset: 1 }
+    const edge = document.createElement('div');
+    edge.className = 'turn-edge';
+    layer.replaceChildren(old, back, shade, edge);
+    layer.className = `turn-layer is-turning ${direction}`;
+    const sign = forward ? -1 : 1;
+    const frames = [
+      { transform: 'rotateY(0deg) translateZ(0)', offset: 0 },
+      { transform: `rotateY(${sign * 5}deg) translateZ(3px)`, offset: .12 },
+      { transform: `rotateY(${sign * 72}deg) translateZ(7px)`, offset: .48 },
+      { transform: `rotateY(${sign * 136}deg) translateZ(4px)`, offset: .78 },
+      { transform: `rotateY(${sign * 178}deg) translateZ(0)`, offset: 1 }
     ];
-    const timing = { duration: 540, easing: 'cubic-bezier(.3,.08,.25,1)', fill: 'both', direction: forward ? 'normal' : 'reverse' };
+    const timing = { duration: 860, easing: 'cubic-bezier(.42,0,.2,1)', fill: 'both' };
     const animation = layer.animate(frames, timing);
-    const shadow = shade.animate([{ opacity: 0 }, { opacity: .8 }, { opacity: .15 }], timing);
-    const tabMotion = mobile.matches ? tabs.animate([{ transform: 'translateY(12px)' }, { transform: 'translateY(0)' }], { duration: 420, easing: 'ease-out' }) : null;
+    const shadow = shade.animate([
+      { opacity: 0, offset: 0 },
+      { opacity: .18, offset: .16 },
+      { opacity: .58, offset: .5 },
+      { opacity: .16, offset: .82 },
+      { opacity: 0, offset: 1 }
+    ], timing);
+    const castShadow = underlay.animate([
+      { opacity: 0, offset: 0 },
+      { opacity: .65, offset: .4 },
+      { opacity: .32, offset: .72 },
+      { opacity: 0, offset: 1 }
+    ], timing);
+    const edgeLight = edge.animate([
+      { opacity: .08, offset: 0 },
+      { opacity: .9, offset: .48 },
+      { opacity: .28, offset: .86 },
+      { opacity: 0, offset: 1 }
+    ], timing);
     try { await animation.finished; }
     catch { /* Abgebrochene Animationen sperren das Heft nicht. */ }
     finally {
-      animation.cancel(); shadow.cancel(); tabMotion?.cancel();
-      layer.classList.remove('is-turning'); layer.replaceChildren(); underlay?.remove();
+      animation.cancel(); shadow.cancel(); castShadow.cancel(); edgeLight.cancel();
+      layer.className = 'turn-layer'; layer.replaceChildren(); underlay.remove();
+      book.classList.remove('is-page-turning');
       book.style.minHeight = ''; turning = false;
-      if (pending) { const next = pending; pending = null; turnTo(next.index, next.updateHash); }
     }
   }
 
